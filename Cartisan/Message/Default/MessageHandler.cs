@@ -1,4 +1,4 @@
-﻿namespace Cartisan.Message.Default {
+﻿/*namespace Cartisan.Message.Default {
     public class MessageHandler<TMessage>: IMessageHandler where TMessage: class {
         private readonly IMessageHandler<TMessage> _messageHandler;
 
@@ -10,4 +10,4 @@
             _messageHandler.Handle(message as TMessage);
         }
     }
-}
+}*/

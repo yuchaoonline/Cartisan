@@ -1,4 +1,4 @@
-﻿namespace Cartisan.Event.Default {
+﻿/*namespace Cartisan.Event.Default {
     public class DomainEvent: IDomainEvent {
         public object AggregateRootId { get; private set; }
         public string AggregateRootName { get; set; }
@@ -7,4 +7,4 @@
             this.AggregateRootId = aggregateRootId;
         }
     }
-}
+}*/

@@ -1,4 +1,4 @@
-﻿using System.Threading;
+﻿/*using System.Threading;
 using System.Threading.Tasks;
 
 namespace Cartisan.Message {
@@ -14,4 +14,4 @@ namespace Cartisan.Message {
         public CancellationToken CancellationToken { get; set; }
         public TaskCompletionSource<object> TaskCompletionSource { get; set; } 
     }
-}
+}*/

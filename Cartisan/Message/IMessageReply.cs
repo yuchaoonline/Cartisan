@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 
 namespace Cartisan.Message {
@@ -8,4 +8,4 @@ namespace Cartisan.Message {
         object Result { get; }
         Exception Exception { get; set; }
     }
-}
+}*/

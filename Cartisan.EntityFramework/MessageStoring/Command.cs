@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿/*using System.Collections.Generic;
 using System.Linq;
 using Cartisan.Event.Default;
 using Cartisan.Message;
@@ -17,4 +17,4 @@ namespace Cartisan.EntityFramework.MessageStoring {
             get { return ChildrenMessages.Cast<DomainEvent>(); }
         } 
     }
-}
+}*/

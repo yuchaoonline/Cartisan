@@ -1,5 +1,5 @@
-﻿namespace Cartisan.Message {
+﻿/*namespace Cartisan.Message {
     public interface IMessageHandledNotification {
         string MessageId { get; set; } 
     }
-}
+}*/

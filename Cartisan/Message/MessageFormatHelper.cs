@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Text;
 using Cartisan.Infrastructure.Extensions;
 
@@ -56,4 +56,4 @@ namespace Cartisan.Message {
             return message;
         }
     }
-}
+}*/

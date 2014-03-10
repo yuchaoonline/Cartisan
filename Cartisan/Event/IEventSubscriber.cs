@@ -1,4 +1,4 @@
-﻿using Cartisan.Message;
+﻿/*using Cartisan.Message;
 
 namespace Cartisan.Event {
     /// <summary>
@@ -7,4 +7,4 @@ namespace Cartisan.Event {
     /// <typeparam name="TEvent"></typeparam>
     public interface IEventSubscriber<in TEvent>: 
         IMessageHandler<TEvent> where TEvent: class, IEvent {}
-}
+}*/

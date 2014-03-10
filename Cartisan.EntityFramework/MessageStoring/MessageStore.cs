@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using Cartisan.Message;
@@ -59,4 +59,4 @@ namespace Cartisan.EntityFramework.MessageStoring {
             }
         }
     }
-}
+}*/

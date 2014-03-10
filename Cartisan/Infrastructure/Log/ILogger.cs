@@ -1,6 +1,9 @@
 ﻿using System;
 
 namespace Cartisan.Infrastructure.Log {
+    /// <summary>
+    /// 日志
+    /// </summary>
     public interface ILogger {
         void Debug(object message);
         void Debug(object message, Exception exception);

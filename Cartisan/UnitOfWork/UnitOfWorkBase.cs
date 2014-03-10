@@ -1,14 +1,10 @@
-﻿using Cartisan.Event;
-using Cartisan.Infrastructure;
-using Cartisan.Message;
-
-namespace Cartisan.UnitOfWork {
+﻿namespace Cartisan.UnitOfWork {
     public abstract class UnitOfWorkBase: IUnitOfWork {
-        private readonly IDomainEventBus _domainEventBus;
+        /*private readonly IDomainEventBus _domainEventBus;*/
 
         protected UnitOfWorkBase() {}
 
-        protected UnitOfWorkBase(IDomainEventBus domainEventBus) {
+        /*protected UnitOfWorkBase(IDomainEventBus domainEventBus) {
             this._domainEventBus = domainEventBus;
         }
 
@@ -18,7 +14,7 @@ namespace Cartisan.UnitOfWork {
 
         protected IDomainEventBus DomainEventBus {
             get { return this._domainEventBus; }
-        }
+        }*/
 
         public abstract void Commit();
     }

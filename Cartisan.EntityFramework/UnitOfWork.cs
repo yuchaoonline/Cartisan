@@ -2,18 +2,19 @@
 using System.Data.Entity;
 using System.Transactions;
 using Cartisan.Config;
-using Cartisan.Event;
 using Cartisan.UnitOfWork;
 
 namespace Cartisan.EntityFramework {
     public class UnitOfWork: UnitOfWorkBase, IUnitOfWork {
         private readonly List<DbContext> _contexts;
 
-        public UnitOfWork() {}
-
-        public UnitOfWork(IDomainEventBus domainEventBus): base(domainEventBus) {
+        public UnitOfWork() {
             _contexts = new List<DbContext>();
         }
+
+        /*public UnitOfWork(IDomainEventBus domainEventBus): base(domainEventBus) {
+            _contexts = new List<DbContext>();
+        }*/
 
         public override void Commit() {
             using(TransactionScope scope = new TransactionScope()) {
@@ -21,9 +22,9 @@ namespace Cartisan.EntityFramework {
                 scope.Complete();
             }
 
-            if(DomainEventBus!=null) {
+            /*if(DomainEventBus!=null) {
                 DomainEventBus.Commit();
-            }
+            }*/
 
             if(Configuration.IsPersistanceMessage) {
                 // TODO: persistance command and domain events

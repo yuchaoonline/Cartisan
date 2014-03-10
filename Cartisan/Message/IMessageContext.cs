@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
@@ -14,4 +14,4 @@ namespace Cartisan.Message {
         object Message { get; }
         DateTime SentTime { get; }
     }
-}
+}*/

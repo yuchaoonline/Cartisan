@@ -1,12 +1,13 @@
 ﻿using System;
-using Cartisan.Event;
-using Cartisan.Infrastructure;
 
 namespace Cartisan.Domain {
+    /// <summary>
+    /// 聚合根基类
+    /// </summary>
     public abstract class AggregateRoot: Entity, IAggregateRoot {
-        protected IDomainEventBus EventBus {
+        /*protected IDomainEventBus EventBus {
             get { return IoCFactory.Resolve<IDomainEventBus>(); }
-        }
+        }*/
 
         private string _aggreagetRootType;
 
@@ -23,7 +24,7 @@ namespace Cartisan.Domain {
             }
         }
 
-        protected virtual void OnEvent<TDomainEvent>(TDomainEvent @event) where TDomainEvent: class, IDomainEvent {
+        /*protected virtual void OnEvent<TDomainEvent>(TDomainEvent @event) where TDomainEvent: class, IDomainEvent {
             HandleEvent(@event);
             @event.AggregateRootName = AggregateRootName;
             EventBus.Publish(@event);
@@ -34,6 +35,6 @@ namespace Cartisan.Domain {
             if(subscriber!=null) {
                 subscriber.Handle(@event);
             }
-        }
+        }*/
     }
 }

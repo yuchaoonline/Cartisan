@@ -6,10 +6,12 @@ using Cartisan.Domain;
 using Cartisan.Specifications;
 
 namespace Cartisan.Repositories {
-    public interface IRepository { }
-
-    public interface IRepository<TAggregateRoot> : IRepository
-        where TAggregateRoot: class {
+    /// <summary>
+    /// 仓储
+    /// </summary>
+    /// <typeparam name="TAggregateRoot"></typeparam>
+    public interface IRepository<TAggregateRoot> 
+        where TAggregateRoot: class, IAggregateRoot {
 
         void Add(IQueryable<TAggregateRoot> entities);
         void Add(TAggregateRoot entity);

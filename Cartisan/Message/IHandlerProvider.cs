@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 
 namespace Cartisan.Message {
@@ -6,4 +6,4 @@ namespace Cartisan.Message {
         object GetHandler(Type messageType);
         IList<object> GetHandlers(Type messageType);
     }
-}
+}*/

@@ -1,7 +1,7 @@
-﻿using Cartisan.Message;
+﻿/*using Cartisan.Message;
 
 namespace Cartisan.Command {
     public interface ICommandHandlerProvider: IHandlerProvider {
          
     }
-}
+}*/

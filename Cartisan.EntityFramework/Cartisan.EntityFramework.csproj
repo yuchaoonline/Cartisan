@@ -48,7 +48,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ContextBase.cs" />
-    <Compile Include="EfDomainRepositoryBase.cs" />
     <Compile Include="EfRepositoryBase.cs" />
     <Compile Include="Extensions\EntityExtension.cs" />
     <Compile Include="Extensions\QueryableCollectionInitializer.cs" />

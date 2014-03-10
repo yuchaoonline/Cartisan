@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using Cartisan.Infrastructure.Extensions;
@@ -29,4 +29,4 @@ namespace Cartisan.EntityFramework.MessageStoring {
         [InverseProperty("ParentMessage")]
         public virtual ICollection<Message> ChildrenMessages { get; set; }
     }
-}
+}*/

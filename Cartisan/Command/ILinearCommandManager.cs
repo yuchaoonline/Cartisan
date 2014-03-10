@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 
 namespace Cartisan.Command {
     public interface ILinearCommandManager {
@@ -7,4 +7,4 @@ namespace Cartisan.Command {
         void RegisterLinearCommand<TLinearCommand>(Func<TLinearCommand, object> func)
             where TLinearCommand: ILinearCommand;
     }
-}
+}*/
