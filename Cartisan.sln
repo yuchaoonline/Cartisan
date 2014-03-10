@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30110.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cartisan", "Cartisan\Cartisan.csproj", "{E6DB5B35-DEEF-455D-9EC6-C8874571E7A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cartisan.Web", "Cartisan.Web\Cartisan.Web.csproj", "{FA2D9511-C23D-4FD1-B15A-A513528CF4B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cartisan.Web.Mvc", "Cartisan.Web.Mvc\Cartisan.Web.Mvc.csproj", "{3CE744EF-20F8-4A35-9C4A-3C3368D71E55}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cartisan.Web.Mvc.Tests", "Cartisan.Web.Mvc.Tests\Cartisan.Web.Mvc.Tests.csproj", "{4BBED3C4-5CAB-43F6-BB26-950BEAC4B452}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cartisan.EntityFramework", "Cartisan.EntityFramework\Cartisan.EntityFramework.csproj", "{56B87B26-5EEF-4350-B7D0-F6F9ABF2745A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cartisan.Log4Net", "Cartisan.Log4Net\Cartisan.Log4Net.csproj", "{D4D7B2FD-5141-4260-8BE8-98588F3C15F7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E6DB5B35-DEEF-455D-9EC6-C8874571E7A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6DB5B35-DEEF-455D-9EC6-C8874571E7A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6DB5B35-DEEF-455D-9EC6-C8874571E7A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6DB5B35-DEEF-455D-9EC6-C8874571E7A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA2D9511-C23D-4FD1-B15A-A513528CF4B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA2D9511-C23D-4FD1-B15A-A513528CF4B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA2D9511-C23D-4FD1-B15A-A513528CF4B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA2D9511-C23D-4FD1-B15A-A513528CF4B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CE744EF-20F8-4A35-9C4A-3C3368D71E55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CE744EF-20F8-4A35-9C4A-3C3368D71E55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CE744EF-20F8-4A35-9C4A-3C3368D71E55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CE744EF-20F8-4A35-9C4A-3C3368D71E55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BBED3C4-5CAB-43F6-BB26-950BEAC4B452}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BBED3C4-5CAB-43F6-BB26-950BEAC4B452}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BBED3C4-5CAB-43F6-BB26-950BEAC4B452}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BBED3C4-5CAB-43F6-BB26-950BEAC4B452}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56B87B26-5EEF-4350-B7D0-F6F9ABF2745A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56B87B26-5EEF-4350-B7D0-F6F9ABF2745A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56B87B26-5EEF-4350-B7D0-F6F9ABF2745A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56B87B26-5EEF-4350-B7D0-F6F9ABF2745A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4D7B2FD-5141-4260-8BE8-98588F3C15F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4D7B2FD-5141-4260-8BE8-98588F3C15F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4D7B2FD-5141-4260-8BE8-98588F3C15F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4D7B2FD-5141-4260-8BE8-98588F3C15F7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E6DB5B35-DEEF-455D-9EC6-C8874571E7A6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Cartisan</RootNamespace>
+    <AssemblyName>Cartisan</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bus\IBus.cs" />
+    <Compile Include="Cache\ICacheService.cs" />
+    <Compile Include="Command\Default\CommandBase.cs" />
+    <Compile Include="Command\Default\CommandHandlerProvider.cs" />
+    <Compile Include="Command\Default\LinearCommandManager.cs" />
+    <Compile Include="Command\ICommand.cs" />
+    <Compile Include="Command\ICommandBus.cs" />
+    <Compile Include="Command\ICommandHandler.cs" />
+    <Compile Include="Command\ICommandHandlerProvider.cs" />
+    <Compile Include="Command\ILinearCommandManager.cs" />
+    <Compile Include="Config\BaseConfigurationCollection.cs" />
+    <Compile Include="Config\CartisanConfigurationSection.cs" />
+    <Compile Include="Config\Configuration.cs" />
+    <Compile Include="Config\ConfigurationReader.cs" />
+    <Compile Include="Config\ConfigurationSectionNameAttribute.cs" />
+    <Compile Include="Config\HandlerElement.cs" />
+    <Compile Include="Config\HandlerElementCollection.cs" />
+    <Compile Include="Config\HandlerSourceType.cs" />
+    <Compile Include="Domain\AggregateRoot.cs" />
+    <Compile Include="Domain\Entity.cs" />
+    <Compile Include="Domain\IAggregateRoot.cs" />
+    <Compile Include="Domain\IEntity.cs" />
+    <Compile Include="Event\Default\DomainEvent.cs" />
+    <Compile Include="Event\Default\DomainEventBus.cs" />
+    <Compile Include="Event\Default\EventSubscriberProvider.cs" />
+    <Compile Include="Event\IApplicationEvent.cs" />
+    <Compile Include="Event\IDomainEvent.cs" />
+    <Compile Include="Event\IDomainEventBus.cs" />
+    <Compile Include="Event\IEvent.cs" />
+    <Compile Include="Event\IEventPublisher.cs" />
+    <Compile Include="Event\IEventSubscriber.cs" />
+    <Compile Include="Event\IEventSubscriberProvider.cs" />
+    <Compile Include="Infrastructure\DynamicJson.cs" />
+    <Compile Include="Infrastructure\Extensions\AutoMapperExtension.cs" />
+    <Compile Include="Infrastructure\Extensions\CollectionExtension.cs" />
+    <Compile Include="Infrastructure\Extensions\ExpressionExtensions.cs" />
+    <Compile Include="Infrastructure\Extensions\JsonExtension.cs" />
+    <Compile Include="Infrastructure\Extensions\ObjectExtension.cs" />
+    <Compile Include="Infrastructure\IContainer.cs" />
+    <Compile Include="Infrastructure\IoCFactory.cs" />
+    <Compile Include="Infrastructure\IServiceLocator.cs" />
+    <Compile Include="Infrastructure\Log\ILogger.cs" />
+    <Compile Include="Infrastructure\Log\ILoggerFactory.cs" />
+    <Compile Include="Infrastructure\TaskWorker.cs" />
+    <Compile Include="Infrastructure\Utility\LambdaUitl.cs" />
+    <Compile Include="Infrastructure\Utility\MD5.cs" />
+    <Compile Include="Infrastructure\Utility\ObjectId.cs" />
+    <Compile Include="Infrastructure\Utility\FastInvoke.cs" />
+    <Compile Include="Infrastructure\Utility\GuidUtil.cs" />
+    <Compile Include="Infrastructure\Utility\LockUtil.cs" />
+    <Compile Include="Infrastructure\Utility\QueryParameter.cs" />
+    <Compile Include="Infrastructure\Utility\SBase64Utility.cs" />
+    <Compile Include="Infrastructure\Utility\SerializeUtil.cs" />
+    <Compile Include="Infrastructure\Utility\Utility.cs" />
+    <Compile Include="Message\Default\HandlerProvider.cs" />
+    <Compile Include="Message\Default\MessageHandler.cs" />
+    <Compile Include="Message\IHandlerProvider.cs" />
+    <Compile Include="Message\IMessageConsumer.cs" />
+    <Compile Include="Message\IMessageContext.cs" />
+    <Compile Include="Message\IMessageDistributor.cs" />
+    <Compile Include="Message\IMessageHandledNotification.cs" />
+    <Compile Include="Message\IMessageHandler.cs" />
+    <Compile Include="Message\IMessageReply.cs" />
+    <Compile Include="Message\IMessageStore.cs" />
+    <Compile Include="Message\MessageCode.cs" />
+    <Compile Include="Message\MessageFormatHelper.cs" />
+    <Compile Include="Message\MessageState.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\IDomainRepository.cs" />
+    <Compile Include="Repositories\RepositoryBase.cs" />
+    <Compile Include="Repositories\IRepository.cs" />
+    <Compile Include="UnitOfWork\IUnitOfWork.cs" />
+    <Compile Include="Repositories\OrderExpression.cs" />
+    <Compile Include="Repositories\OrderExpressionUtility.cs" />
+    <Compile Include="Repositories\SortOrder.cs" />
+    <Compile Include="UnitOfWork\UnitOfWorkBase.cs" />
+    <Compile Include="Specifications\AllSpecification.cs" />
+    <Compile Include="Specifications\AndNotSpecification.cs" />
+    <Compile Include="Specifications\AndSpecification.cs" />
+    <Compile Include="Specifications\CompositeSpecification.cs" />
+    <Compile Include="Specifications\ExpressionSpecification.cs" />
+    <Compile Include="Specifications\ICompositeSpecification.cs" />
+    <Compile Include="Specifications\ISpecification.cs" />
+    <Compile Include="Specifications\ISpecificationParser.cs" />
+    <Compile Include="Specifications\NoneSpecification.cs" />
+    <Compile Include="Specifications\NotSpecification.cs" />
+    <Compile Include="Specifications\OrSpecification.cs" />
+    <Compile Include="Specifications\Semantics.cs" />
+    <Compile Include="Specifications\SemanticsAttribute.cs" />
+    <Compile Include="Specifications\Specification.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy "$(TargetDir)Cartisan*.dll" "$(SolutionDir)\..\CartisanPackages\"/y</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
