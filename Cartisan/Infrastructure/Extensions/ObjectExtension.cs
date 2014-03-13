@@ -41,6 +41,20 @@ namespace Cartisan.Infrastructure.Extensions {
             return fastInvoker(obj, args);
         }
 
+        public static bool HasAttribute<TAttribute>(this MemberInfo member) where TAttribute: Attribute {
+            return member.GetAttribute<TAttribute>() != null;
+        }
+
+        public static TAttribute GetAttribute<TAttribute>(this MemberInfo member) where TAttribute: Attribute {
+            object[] attributes = member.GetCustomAttributes(typeof(TAttribute), true);
+            if(attributes!=null && attributes.Length>0) {
+                return (TAttribute)attributes[0];
+            }
+            else {
+                return null;
+            }
+        }
+
         public static TAttribute GetCustomAttribute<TAttribute>(this object obj, bool inherit = true)
             where TAttribute: Attribute {
             if (obj is Type) {

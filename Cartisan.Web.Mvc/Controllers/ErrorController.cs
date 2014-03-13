@@ -1,4 +1,6 @@
 ﻿using System.Web.Mvc;
+using Cartisan.Web.Mvc.Results;
+using HttpNotFoundResult = Cartisan.Web.Mvc.Results.HttpNotFoundResult;
 
 namespace Cartisan.Web.Mvc.Controllers {
     public class ErrorController: BaseController {
@@ -17,6 +19,12 @@ namespace Cartisan.Web.Mvc.Controllers {
             // Error View Model
 
             return this.View();
+        }
+
+//        routes.MapRoute("404-catch-all", "{*catchall}",
+//            new { controller = "Error", action = "NotFound" });
+        public ActionResult NotFound() {
+            return new HttpNotFoundResult();
         }
     }
 }
