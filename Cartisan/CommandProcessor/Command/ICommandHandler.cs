@@ -1,6 +1,4 @@
-﻿using Cartisan.CommandProcessor.Command;
-
-namespace YouQiu.Framework.CommandProcessor.Command {
+﻿namespace Cartisan.CommandProcessor.Command {
     public interface ICommandHandler<in TCommand> where TCommand: ICommand {
         ICommandResult Execute(TCommand command);
     }

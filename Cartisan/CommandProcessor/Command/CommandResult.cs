@@ -1,5 +1,4 @@
 ﻿using Cartisan.Result;
-using YouQiu.Framework.CommandProcessor.Command;
 
 namespace Cartisan.CommandProcessor.Command {
     public class CommandResult : DefaultResult, ICommandResult {

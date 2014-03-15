@@ -1,4 +1,4 @@
-﻿var youQiu = { };
+﻿var cartisan = cartisan || { };
 
 (function (_, $) {
     // 直接给字符串原型添加格式化方法
@@ -278,4 +278,4 @@
             add(prefix, obj);
         }
     }
-})(youQiu, jQuery);
+})(cartisan, jQuery);

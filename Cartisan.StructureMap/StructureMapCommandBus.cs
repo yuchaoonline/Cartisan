@@ -1,7 +1,6 @@
 ﻿using Cartisan.CommandProcessor.Command;
+using Cartisan.CommandProcessor.Dispatcher;
 using StructureMap;
-using YouQiu.Framework.CommandProcessor.Command;
-using YouQiu.Framework.CommandProcessor.Dispatcher;
 
 namespace Cartisan.StructureMap {
     public class StructureMapCommandBus: ICommandBus {

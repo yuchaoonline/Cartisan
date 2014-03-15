@@ -1,6 +1,5 @@
 ﻿using System;
 using Cartisan.Infrastructure;
-using YouQiu.Framework.CommandProcessor.Command;
 
 namespace Cartisan.CommandProcessor.Command {
     public abstract class ValidationHandlerBase  {

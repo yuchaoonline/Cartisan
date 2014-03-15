@@ -70,14 +70,7 @@
     <Content Include="cartisan.httpRequest.js" />
     <Content Include="cartisan.linq.js" />
     <Content Include="cartisan.loader.js" />
-    <Content Include="cartisan.newPager.js" />
-    <Content Include="cartisan.newRoll.js" />
-    <Content Include="cartisan.newUpload.js" />
-    <Content Include="cartisan.pager.js" />
-    <Content Include="cartisan.roll.js" />
-    <Content Include="cartisan.slider.js" />
-    <Content Include="cartisan.upload.js" />
-    <Content Include="cartisan.validate.js" />
+    <Content Include="validateExtensions.js" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />

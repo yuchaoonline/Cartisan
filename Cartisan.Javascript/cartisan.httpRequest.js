@@ -1,9 +1,5 @@
-﻿(function () {
-    if (!YouQiu) {
-        YouQiu = { };
-    }
-    
-    YouQiu.parseJSON = function parseJSON(s, filter) {
+﻿(function (_) {
+    _.parseJSON = function parseJSON(s, filter) {
         var j;
         function walk(k, v) {
             var i;
@@ -44,7 +40,7 @@
     };
 
     // 设置XMLHttpRequest对象的各个不同的部分
-    YouQiu.getRequestObject = function getRequestObject(url, options) {
+    _.getRequestObject = function getRequestObject(url, options) {
         // 初始化请求对象
         var req = false;
         if (window.XmlHttpRequest) {
@@ -155,7 +151,7 @@
     };
 
     // 通过简单地包装getRequestObject()和send()方法发送XMLHttpRequest对象的请求
-    YouQiu.ajaxRequest = function ajaxRequest(url, options) {
+    _.ajaxRequest = function ajaxRequest(url, options) {
         var req = getRequestObject(url, options);
         return req.send(options.send);
     };
@@ -251,10 +247,10 @@
         }
     };
 
-    YouQiu.XssHttpRequest = XssHttpRequest;
+    _.XssHttpRequest = XssHttpRequest;
 
     // 设置XssHttpRequest对象的不同部分
-    YouQiu.getXssRequestObject = function getXssRequestObject(url, options) {
+    _.getXssRequestObject = function getXssRequestObject(url, options) {
         var req = new XssHttpRequest();
 
         options = options || {};
@@ -301,8 +297,8 @@
     };
 
     // 发送XssHttpRequest请求
-    YouQiu.xssRequest = function xssRequest(url, options) {
+    _.xssRequest = function xssRequest(url, options) {
         var req = getXssRequestObject(url, options);
         return req.send(null);
     };
-})();
+})(cartisan);
