@@ -41,6 +41,24 @@ namespace Cartisan.Infrastructure.Extensions {
             return fastInvoker(obj, args);
         }
 
+        public static string GetPropertyName<TModel, TProperty>(this TModel model, Expression<Func<TModel, TProperty>> expression) {
+            var property = GetProperty(model, expression);
+
+            if (property != null) {
+                return property.Name;
+            }
+
+            return null;
+        }
+
+        private static PropertyInfo GetProperty<TModel, TProperty>(this TModel model, Expression<Func<TModel, TProperty>> expression) {
+            return GetMember(model, expression) as PropertyInfo;
+        }
+
+        private static MemberInfo GetMember<TModel, TProperty>(this TModel model, Expression<Func<TModel, TProperty>> expression) {
+            return ((MemberExpression)expression.Body).Member;
+        }
+
         public static bool HasAttribute<TAttribute>(this MemberInfo member) where TAttribute: Attribute {
             return member.GetAttribute<TAttribute>() != null;
         }

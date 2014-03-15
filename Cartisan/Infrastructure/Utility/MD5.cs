@@ -5,6 +5,14 @@ using System.Text;
 
 namespace Cartisan.Infrastructure.Utility {
     public static class MD5Util {
+
+        public static string Md5EncryptPassword(string data) {
+            var encoding = new ASCIIEncoding();
+            var bytes = encoding.GetBytes(data);
+            var hashed = MD5.Create().ComputeHash(bytes);
+            return Encoding.UTF8.GetString(hashed);
+        }
+
         public static string MD5Encrypt(string pToEncrypt, CipherMode mode = CipherMode.CBC, string key = "CARTISAN") {
             DESCryptoServiceProvider des = new DESCryptoServiceProvider();
             des.Mode = mode;

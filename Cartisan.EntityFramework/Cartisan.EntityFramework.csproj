@@ -73,7 +73,7 @@
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy "$(TargetDir)Cartisan*.dll" "$(SolutionDir)\..\CartisanPackages\"/y</PostBuildEvent>
+    <PostBuildEvent>xcopy "$(TargetDir)Cartisan*.dll" "$(SolutionDir)..\CartisanPackages\"/y</PostBuildEvent>
   </PropertyGroup>
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

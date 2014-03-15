@@ -1,12 +1,10 @@
 ﻿using System;
 using System.IO;
 using System.Reflection;
-using Cartisan.Config;
 using Cartisan.Infrastructure.Utility;
 using FluentNHibernate.Cfg;
 using log4net.Config;
 using NHibernate;
-using NHibernate.Cfg;
 using Configuration = NHibernate.Cfg.Configuration;
 
 namespace Cartisan.NHibernate {

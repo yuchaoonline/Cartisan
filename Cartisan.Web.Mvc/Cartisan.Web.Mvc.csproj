@@ -82,14 +82,19 @@
   <ItemGroup>
     <Compile Include="Auth\FormAuthProvider.cs" />
     <Compile Include="Auth\IAuthProvider.cs" />
-    <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="CartisanMvcHttpModule.cs" />
+    <Compile Include="Controllers\AuthorizeControllerBase.cs" />
+    <Compile Include="Controllers\ControllerBase.cs" />
+    <Compile Include="Controllers\Error.cs" />
     <Compile Include="ExplicitFacadeDictionary.cs" />
+    <Compile Include="Extensions\ConfigurationExtension.cs" />
     <Compile Include="Extensions\MvcContextExtension.cs" />
     <Compile Include="Filters\AddHeaderAttribute.cs" />
     <Compile Include="Filters\AjaxErrorHandleAttribute.cs" />
     <Compile Include="Filters\AuthorizedOnlyAttribute.cs" />
     <Compile Include="Filters\AutoMapModelAttribute.cs" />
+    <Compile Include="Filters\CacheFilterAttribute.cs" />
+    <Compile Include="Filters\CartisanAuthorizeAttribute.cs" />
     <Compile Include="Filters\CompressAttribute.cs" />
     <Compile Include="MvcIntrinsics.cs" />
     <Compile Include="Filters\IsPostedFromThisSiteAttribute.cs" />
@@ -103,9 +108,11 @@
     <Compile Include="Results\JsonNetResult.cs" />
     <Compile Include="Results\HttpNotFoundResult.cs" />
     <Compile Include="Results\JsonpResult.cs" />
+    <Compile Include="Results\PermanentRedirectResult.cs" />
     <Compile Include="Results\SyndicationResult.cs" />
     <Compile Include="Route\UserAgentConstraint.cs" />
     <Compile Include="Views\CartisanViewPage.cs" />
+    <Compile Include="WebApiApplication.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -118,7 +125,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy "$(TargetDir)Cartisan*.dll" "$(SolutionDir)\..\CartisanPackages\"/y</PostBuildEvent>
+    <PostBuildEvent>xcopy "$(TargetDir)Cartisan*.dll" "$(SolutionDir)..\CartisanPackages\"/y</PostBuildEvent>
   </PropertyGroup>
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

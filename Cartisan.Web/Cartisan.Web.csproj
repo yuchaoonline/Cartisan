@@ -42,7 +42,7 @@
   <ItemGroup>
     <Compile Include="AppActivator.cs" />
     <Compile Include="Cache\AspNetCacheService.cs" />
-    <Compile Include="CookiesHelper.cs" />
+    <Compile Include="Cookie\CookiesHelper.cs" />
     <Compile Include="DisposeObjectHttpModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -52,9 +52,10 @@
       <Name>Cartisan</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy "$(TargetDir)Cartisan*.dll" "$(SolutionDir)\..\CartisanPackages\"/y</PostBuildEvent>
+    <PostBuildEvent>xcopy "$(TargetDir)Cartisan*.dll" "$(SolutionDir)..\CartisanPackages\"/y</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

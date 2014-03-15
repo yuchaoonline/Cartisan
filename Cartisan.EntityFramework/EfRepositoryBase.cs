@@ -7,8 +7,8 @@ using System.Linq;
 using System.Linq.Expressions;
 using Cartisan.Domain;
 using Cartisan.Infrastructure.Extensions;
-using Cartisan.Repositories;
-using Cartisan.Specifications;
+using Cartisan.Repository;
+using Cartisan.Specification;
 
 namespace Cartisan.EntityFramework {
     public abstract class EfRepositoryBase<TEntity>: IRepository<TEntity>, IMergeOptionChangable
@@ -36,7 +36,11 @@ namespace Cartisan.EntityFramework {
             DbSet.Add(entity);
         }
 
-        public TEntity GetByKey(params object[] keyValues) {
+        public TEntity Get(params object[] keyValues) {
+            return DbSet.Find(keyValues);
+        }
+
+        public TEntity Load(params object[] keyValues) {
             return DbSet.Find(keyValues);
         }
 

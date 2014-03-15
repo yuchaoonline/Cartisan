@@ -47,6 +47,20 @@
   <ItemGroup>
     <Compile Include="Bus\IBus.cs" />
     <Compile Include="Cache\ICacheService.cs" />
+    <Compile Include="CommandProcessor\Command\CommandHandlerBase.cs" />
+    <Compile Include="CommandProcessor\Command\CommandHandlerNotFoundException.cs" />
+    <Compile Include="CommandProcessor\Command\CommandResult.cs" />
+    <Compile Include="CommandProcessor\Command\ICommand.cs" />
+    <Compile Include="CommandProcessor\Command\ICommandHandler.cs" />
+    <Compile Include="CommandProcessor\Command\ICommandResult.cs" />
+    <Compile Include="CommandProcessor\Command\IValidationHandler.cs" />
+    <Compile Include="CommandProcessor\Command\IValidationResult.cs" />
+    <Compile Include="CommandProcessor\Command\ValidationHandlerBase.cs" />
+    <Compile Include="CommandProcessor\Command\ValidationHandlerNotFoundException.cs" />
+    <Compile Include="CommandProcessor\Command\ValidationResult.cs" />
+    <Compile Include="CommandProcessor\Command\ValidationRule.cs" />
+    <Compile Include="CommandProcessor\Dispatcher\DefaultCommandBus.cs" />
+    <Compile Include="CommandProcessor\Dispatcher\ICommandBus.cs" />
     <Compile Include="Command\Default\CommandBase.cs" />
     <Compile Include="Command\Default\CommandHandlerProvider.cs" />
     <Compile Include="Command\Default\LinearCommandManager.cs" />
@@ -63,10 +77,18 @@
     <Compile Include="Config\HandlerElement.cs" />
     <Compile Include="Config\HandlerElementCollection.cs" />
     <Compile Include="Config\HandlerSourceType.cs" />
+    <Compile Include="DomainEvent\DomainEvents.cs" />
+    <Compile Include="DomainEvent\IDomainEvent.cs" />
+    <Compile Include="DomainEvent\IDomainEventHandler.cs" />
+    <Compile Include="DomainEvent\IDomainEventHandlerFactory.cs" />
     <Compile Include="Domain\AggregateRoot.cs" />
+    <Compile Include="Domain\BusinessRule.cs" />
     <Compile Include="Domain\Entity.cs" />
+    <Compile Include="Domain\EntityIsInvalidException.cs" />
     <Compile Include="Domain\IAggregateRoot.cs" />
     <Compile Include="Domain\IEntity.cs" />
+    <Compile Include="Domain\ValueObjectBase.cs" />
+    <Compile Include="Domain\ValueObjectIsInvalidException.cs" />
     <Compile Include="Event\Default\DomainEvent.cs" />
     <Compile Include="Event\Default\DomainEventBus.cs" />
     <Compile Include="Event\Default\EventSubscriberProvider.cs" />
@@ -77,17 +99,22 @@
     <Compile Include="Event\IEventPublisher.cs" />
     <Compile Include="Event\IEventSubscriber.cs" />
     <Compile Include="Event\IEventSubscriberProvider.cs" />
+    <Compile Include="Infrastructure\Disposable.cs" />
     <Compile Include="Infrastructure\DynamicJson.cs" />
     <Compile Include="Infrastructure\Extensions\AutoMapperExtension.cs" />
     <Compile Include="Infrastructure\Extensions\CollectionExtension.cs" />
     <Compile Include="Infrastructure\Extensions\ExpressionExtensions.cs" />
     <Compile Include="Infrastructure\Extensions\JsonExtension.cs" />
     <Compile Include="Infrastructure\Extensions\ObjectExtension.cs" />
+    <Compile Include="Infrastructure\Extensions\StringExtensions.cs" />
     <Compile Include="Infrastructure\IContainer.cs" />
     <Compile Include="Infrastructure\IoCFactory.cs" />
     <Compile Include="Infrastructure\IServiceLocator.cs" />
     <Compile Include="Infrastructure\Log\ILogger.cs" />
     <Compile Include="Infrastructure\Log\ILoggerFactory.cs" />
+    <Compile Include="Infrastructure\PageInfo.cs" />
+    <Compile Include="Infrastructure\Result.cs" />
+    <Compile Include="Infrastructure\ResultState.cs" />
     <Compile Include="Infrastructure\TaskWorker.cs" />
     <Compile Include="Infrastructure\Utility\LambdaUitl.cs" />
     <Compile Include="Infrastructure\Utility\MD5.cs" />
@@ -113,27 +140,50 @@
     <Compile Include="Message\MessageFormatHelper.cs" />
     <Compile Include="Message\MessageState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\RepositoryBase.cs" />
-    <Compile Include="Repositories\IRepository.cs" />
+    <Compile Include="QueryProcessor\Dispatcher\IQueryBus.cs" />
+    <Compile Include="QueryProcessor\Query\DefaultQueryResult.cs" />
+    <Compile Include="QueryProcessor\Query\IListResult.cs" />
+    <Compile Include="QueryProcessor\Query\IPageResult.cs" />
+    <Compile Include="QueryProcessor\Query\IQuery.cs" />
+    <Compile Include="QueryProcessor\Query\IQueryListHandler.cs" />
+    <Compile Include="QueryProcessor\Query\IQueryPageHandler.cs" />
+    <Compile Include="QueryProcessor\Query\IQueryResult.cs" />
+    <Compile Include="QueryProcessor\Query\IQuerySingleHandler.cs" />
+    <Compile Include="QueryProcessor\Query\ISingleResult.cs" />
+    <Compile Include="QueryProcessor\Query\ListResult.cs" />
+    <Compile Include="QueryProcessor\Query\PageOption.cs" />
+    <Compile Include="QueryProcessor\Query\Pager.cs" />
+    <Compile Include="QueryProcessor\Query\PageResult.cs" />
+    <Compile Include="QueryProcessor\Query\QueryHandlerBase.cs" />
+    <Compile Include="QueryProcessor\Query\QueryHandlerNotFoundException.cs" />
+    <Compile Include="QueryProcessor\Query\QueryPageHandlerBase.cs" />
+    <Compile Include="QueryProcessor\Query\SingleResult.cs" />
+    <Compile Include="Regex\RegexRule.cs" />
+    <Compile Include="Repository\RepositoryBase.cs" />
+    <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="Result\DefaultResult.cs" />
+    <Compile Include="Result\IResult.cs" />
     <Compile Include="UnitOfWork\IUnitOfWork.cs" />
-    <Compile Include="Repositories\OrderExpression.cs" />
-    <Compile Include="Repositories\OrderExpressionUtility.cs" />
-    <Compile Include="Repositories\SortOrder.cs" />
+    <Compile Include="Repository\OrderExpression.cs" />
+    <Compile Include="Repository\OrderExpressionUtility.cs" />
+    <Compile Include="Repository\SortOrder.cs" />
     <Compile Include="UnitOfWork\UnitOfWorkBase.cs" />
-    <Compile Include="Specifications\AllSpecification.cs" />
-    <Compile Include="Specifications\AndNotSpecification.cs" />
-    <Compile Include="Specifications\AndSpecification.cs" />
-    <Compile Include="Specifications\CompositeSpecification.cs" />
-    <Compile Include="Specifications\ExpressionSpecification.cs" />
-    <Compile Include="Specifications\ICompositeSpecification.cs" />
-    <Compile Include="Specifications\ISpecification.cs" />
-    <Compile Include="Specifications\ISpecificationParser.cs" />
-    <Compile Include="Specifications\NoneSpecification.cs" />
-    <Compile Include="Specifications\NotSpecification.cs" />
-    <Compile Include="Specifications\OrSpecification.cs" />
-    <Compile Include="Specifications\Semantics.cs" />
-    <Compile Include="Specifications\SemanticsAttribute.cs" />
-    <Compile Include="Specifications\Specification.cs" />
+    <Compile Include="Specification\AllSpecification.cs" />
+    <Compile Include="Specification\AndNotSpecification.cs" />
+    <Compile Include="Specification\AndSpecification.cs" />
+    <Compile Include="Specification\CompositeSpecification.cs" />
+    <Compile Include="Specification\ExpressionSpecification.cs" />
+    <Compile Include="Specification\ICompositeSpecification.cs" />
+    <Compile Include="Specification\ISpecification.cs" />
+    <Compile Include="Specification\ISpecificationParser.cs" />
+    <Compile Include="Specification\NoneSpecification.cs" />
+    <Compile Include="Specification\NotSpecification.cs" />
+    <Compile Include="Specification\OrSpecification.cs" />
+    <Compile Include="Specification\Semantics.cs" />
+    <Compile Include="Specification\SemanticsAttribute.cs" />
+    <Compile Include="Specification\Specification.cs" />
+    <Compile Include="Validation\MessageType.cs" />
+    <Compile Include="Validation\ValidationMessage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -141,7 +191,7 @@
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy "$(TargetDir)Cartisan*.dll" "$(SolutionDir)\..\CartisanPackages\"/y</PostBuildEvent>
+    <PostBuildEvent>xcopy "$(TargetDir)Cartisan*.dll" "$(SolutionDir)..\CartisanPackages\"/y</PostBuildEvent>
   </PropertyGroup>
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
