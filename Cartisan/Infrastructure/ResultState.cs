@@ -3,6 +3,7 @@
         Success = 1,
         Unauthorized = 2,
         Exception = 3,
-        RuntimeFail = 4
+        RuntimeFailure = 4,
+        ValidateFailure = 5
     }
 }

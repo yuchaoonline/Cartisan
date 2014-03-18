@@ -19,7 +19,7 @@ namespace Cartisan.Infrastructure {
             get { return this._success; }
             set {
                 this._success = value;
-                this._state = value ? ResultState.Success : ResultState.RuntimeFail;
+                this._state = value ? ResultState.Success : ResultState.RuntimeFailure;
             }
         }
 

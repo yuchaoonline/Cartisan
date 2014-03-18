@@ -99,10 +99,14 @@
     <Compile Include="Event\IEventPublisher.cs" />
     <Compile Include="Event\IEventSubscriber.cs" />
     <Compile Include="Event\IEventSubscriberProvider.cs" />
+    <Compile Include="Exceptions\RuntimeFailureException.cs" />
+    <Compile Include="Exceptions\UnauthorizedException.cs" />
+    <Compile Include="Exceptions\ValidateFailureException.cs" />
     <Compile Include="Infrastructure\Disposable.cs" />
     <Compile Include="Infrastructure\DynamicJson.cs" />
     <Compile Include="Infrastructure\Extensions\AutoMapperExtension.cs" />
     <Compile Include="Infrastructure\Extensions\CollectionExtension.cs" />
+    <Compile Include="Infrastructure\Extensions\ConverterExtension.cs" />
     <Compile Include="Infrastructure\Extensions\ExpressionExtensions.cs" />
     <Compile Include="Infrastructure\Extensions\JsonExtension.cs" />
     <Compile Include="Infrastructure\Extensions\ObjectExtension.cs" />
@@ -159,6 +163,8 @@
     <Compile Include="QueryProcessor\Query\QueryPageHandlerBase.cs" />
     <Compile Include="QueryProcessor\Query\SingleResult.cs" />
     <Compile Include="Regex\RegexRule.cs" />
+    <Compile Include="Repository\ISql.cs" />
+    <Compile Include="Repository\PaginatedList.cs" />
     <Compile Include="Repository\RepositoryBase.cs" />
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Result\DefaultResult.cs" />

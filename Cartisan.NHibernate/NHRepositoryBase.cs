@@ -67,3 +67,27 @@
 //        //}
 //    }
 //}
+
+//public class NHRepositoryBase<T, TId>: RepositoryBase<T, TId>, IRepository<T, TId>
+//    where T: class, IAggregateRoot, IEntity<TId>
+//    where TId: IComparable {
+//
+//    public NHRepositoryBase(IUnitOfWork unitOfWork) : base(unitOfWork) { }
+//
+//    public override T Load(TId id) {
+//        return SessionProvider.GetCurrentSession().Load<T>(id);
+//    }
+//
+//    public override T Get(TId id) {
+//        return SessionProvider.GetCurrentSession().Get<T>(id);
+//    }
+//
+//    public override IQueryable<T> GetAll() {
+//        return SessionProvider.GetCurrentSession().CreateCriteria(typeof(T)).List<T>().AsQueryable();
+//    }
+//
+//    public override IQueryable<T> FindBy(Expression<Func<T, bool>> predicate) {
+//        return SessionProvider.GetCurrentSession().CreateCriteria(typeof(T)).List<T>().Where(
+//            entity => predicate.Compile().Invoke(entity)).AsQueryable();
+//    }
+//}
