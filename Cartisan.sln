@@ -42,6 +42,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cartisan.UnitTest.Mvc", "Ca
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cartisan.Components", "Cartisan.Components\Cartisan.Components.csproj", "{56A1AC2F-4A33-4819-AC88-0A6CA579F00C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cartisan.AutoMapper", "Cartisan.AutoMapper\Cartisan.AutoMapper.csproj", "{F64AC361-A06E-44D2-A2B7-67C5AA8A3B37}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -112,6 +114,10 @@ Global
 		{56A1AC2F-4A33-4819-AC88-0A6CA579F00C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56A1AC2F-4A33-4819-AC88-0A6CA579F00C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56A1AC2F-4A33-4819-AC88-0A6CA579F00C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F64AC361-A06E-44D2-A2B7-67C5AA8A3B37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F64AC361-A06E-44D2-A2B7-67C5AA8A3B37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F64AC361-A06E-44D2-A2B7-67C5AA8A3B37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F64AC361-A06E-44D2-A2B7-67C5AA8A3B37}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

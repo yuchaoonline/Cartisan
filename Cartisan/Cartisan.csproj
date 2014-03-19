@@ -112,13 +112,16 @@
     <Compile Include="Infrastructure\Extensions\ObjectExtension.cs" />
     <Compile Include="Infrastructure\Extensions\StringExtensions.cs" />
     <Compile Include="Infrastructure\IContainer.cs" />
+    <Compile Include="Infrastructure\IDependency.cs" />
     <Compile Include="Infrastructure\IoCFactory.cs" />
+    <Compile Include="Infrastructure\IResolver.cs" />
     <Compile Include="Infrastructure\IServiceLocator.cs" />
     <Compile Include="Infrastructure\Log\ILogger.cs" />
     <Compile Include="Infrastructure\Log\ILoggerFactory.cs" />
     <Compile Include="Infrastructure\PageInfo.cs" />
     <Compile Include="Infrastructure\Result.cs" />
     <Compile Include="Infrastructure\ResultState.cs" />
+    <Compile Include="Infrastructure\ServiceLocator.cs" />
     <Compile Include="Infrastructure\TaskWorker.cs" />
     <Compile Include="Infrastructure\Utility\LambdaUitl.cs" />
     <Compile Include="Infrastructure\Utility\MD5.cs" />
@@ -165,6 +168,7 @@
     <Compile Include="Regex\RegexRule.cs" />
     <Compile Include="Repository\ISql.cs" />
     <Compile Include="Repository\PaginatedList.cs" />
+    <Compile Include="Repository\QueryableExtension.cs" />
     <Compile Include="Repository\RepositoryBase.cs" />
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Result\DefaultResult.cs" />

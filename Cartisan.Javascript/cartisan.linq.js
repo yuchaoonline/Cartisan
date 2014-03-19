@@ -3,15 +3,15 @@
         this.dataItems = dataItems;
     };
 
-    Array.prototype.AsEnumerable = function () {
+    Array.prototype.asEnumerable = function () {
         return new Enumerable(this);
     };
 
-    Enumerable.prototype.ToArray = function () {
+    Enumerable.prototype.toArray = function () {
         return this.dataItems;
     };
 
-    Enumerable.prototype.ForEach = function (eachFunc) {
+    Enumerable.prototype.forEach = function (eachFunc) {
         for (var i = 0, length = this.dataItems.length; i < length; i++) {
             eachFunc(this.dataItems[i], i);
         }
@@ -19,17 +19,17 @@
         return this;
     };
 
-    Enumerable.prototype.Where = function (conditionFunc) {
+    Enumerable.prototype.where = function (conditionFunc) {
         var arr = [];
         for (var i = 0, length = this.dataItems.length; i < length; i++) {
             if (conditionFunc(this.dataItems[i], i)) {
                 arr[arr.length] = this.dataItems[i];
             }
         }
-        return arr.AsEnumerable();
+        return arr.asEnumerable();
     };
 
-    Enumerable.prototype.Contains = function (containsFunc) {
+    Enumerable.prototype.contains = function (containsFunc) {
         for (var i = 0, length = this.dataItems.length; i < length; i++) {
             if (containsFunc(this.dataItems[i])) {
                 return true;
@@ -38,12 +38,29 @@
         return false;
     };
 
-    Enumerable.prototype.Select = function (selectFunc) {
+    Enumerable.prototype.select = function (selectFunc) {
         var arr = [];
         for (var i = 0, length = this.dataItems.length; i < length; i++) {
             arr[arr.length] = selectFunc(this.dataItems[i], i);
         }
-        return arr.AsEnumerable();
+        return arr.asEnumerable();
     };
 
+    Enumerable.prototype.any = function (containsFunc) {
+        for (var i = 0, length = this.dataItems.length; i < length; i++) {
+            if (containsFunc(this.dataItems[i])) {
+                return true;
+            }
+        }
+        return false;
+    };
+
+    Enumerable.prototype.all = function (containsFunc) {
+        for (var i = 0, length = this.dataItems.length; i < length; i++) {
+            if (!containsFunc(this.dataItems[i])) {
+                return false;
+            }
+        }
+        return true;
+    };
 })();

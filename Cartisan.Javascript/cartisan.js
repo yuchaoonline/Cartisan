@@ -279,3 +279,259 @@
         }
     }
 })(cartisan, jQuery);
+
+//
+//var youqiu = youqiu || {};
+//youqiu.data = youqiu.data || {};    // 用于存放临时的数据或者对象
+//
+///**************************
+// * 屏蔽右键
+// **************************/
+//$(document).bind('contextmenu', function () {
+//    // return false;
+//});
+//
+///**************************
+// * 禁止复制
+// **************************/
+//$(document).bind('selectstart', function () {
+//    // return false;
+//});
+//
+///**************************
+// * 命名空间
+// **************************/
+//youqiu.ns = function () {
+//    var o = {}, args;
+//    for (var i = 0; i < arguments.length; i++) {
+//        args = arguments[i].split('.');
+//        o = window[args[0]] = window[args[0]] || {};
+//        for (var j = 0; j < args.slice(1).length; j++) {
+//            o = o[args[j + 1]] = o[args[j + 1]] || {};
+//        }
+//    }
+//
+//    return o;
+//};
+//
+///**************************
+// * 去除字符串空格
+// **************************/
+//youqiu.trim = function (str) {
+//    return str.replace(/(^\s*)|(\s*$)/g, '');
+//};
+//youqiu.ltrim = function (str) {
+//    return str.replace(/(^\s*)/g, '');
+//};
+//youqiu.rtrim = function (str) {
+//    return str.replace(/(\s*$)/g, '');
+//};
+//
+///**************************
+// * 判断是否以指定字符串开始、结束
+// **************************/
+//youqiu.startWidth = function (source, str) {
+//    return new RegExp('^' + str).test(source);
+//};
+//youqiu.endWidth = function (source, str) {
+//    return new RegExp(str + '$').test(source);
+//};
+//
+///**************************
+// * 将form表单元素的值序列化成对象
+// **************************/
+//youqiu.serializeObject = function (form) {
+//    var o = {};
+//    $.each(form.serializeArray(), function (index) {
+//        if (this['value'] != undefined && this['value'].length > 0) {
+//            if (o[this['name']]) {
+//                o[this[name]] = o[this['name']] instanceof Array ? o[this['name']].push(this['value']) : [o[this['name']], this['value']];
+//            }
+//            else {
+//                o[this['name']] = this['value'];
+//            }
+//        }
+//    });
+//
+//    return o;
+//};
+//
+///**************************
+// * 字符串格式化
+// **************************/
+//youqiu.formatString = function (str) {
+//    for (var i = 0; i < arguments.length - 1; i++) {
+//        str = str.replace('{' + i + '}', arguments[i + 1]);
+//    }
+//    return str;
+//};
+//
+//youqiu.cloneObject = function (obj) {
+//    if (!obj) {
+//        return obj;
+//    }
+//    var o = obj.constructor === Array ? [] : {};
+//    for (var i in obj) {
+//        if (obj.hasOwnProperty(i)) {
+//            o[i] = typeof obj[i] === "object" ? youqiu.cloneObject(obj[i]) : obj[i];
+//        }
+//    }
+//    return o;
+//};
+//
+//
+///**
+// * Create a cookie with the given key and value and other optional parameters.
+// * 
+// * @example sy.cookie('the_cookie', 'the_value');
+// * @desc Set the value of a cookie.
+// * @example sy.cookie('the_cookie', 'the_value', { expires: 7, path: '/', domain: 'jquery.com', secure: true });
+// * @desc Create a cookie with all available options.
+// * @example sy.cookie('the_cookie', 'the_value');
+// * @desc Create a session cookie.
+// * @example sy.cookie('the_cookie', null);
+// * @desc Delete a cookie by passing null as value. Keep in mind that you have to use the same path and domain used when the cookie was set.
+// * 
+// * @param String
+// *            key The key of the cookie.
+// * @param String
+// *            value The value of the cookie.
+// * @param Object
+// *            options An object literal containing key/value pairs to provide optional cookie attributes.
+// * @option Number|Date expires Either an integer specifying the expiration date from now on in days or a Date object. If a negative value is specified (e.g. a date in the past), the cookie will be deleted. If set to null or omitted, the cookie will be a session cookie and will not be retained when the the browser exits.
+// * @option String path The value of the path atribute of the cookie (default: path of page that created the cookie).
+// * @option String domain The value of the domain attribute of the cookie (default: domain of page that created the cookie).
+// * @option Boolean secure If true, the secure attribute of the cookie will be set and the cookie transmission will require a secure protocol (like HTTPS).
+// * @type undefined
+// * 
+// * @name sy.cookie
+// * @cat Plugins/Cookie
+// * @author Klaus Hartl/klaus.hartl@stilbuero.de
+// * 
+// * Get the value of a cookie with the given key.
+// * 
+// * @example sy.cookie('the_cookie');
+// * @desc Get the value of a cookie.
+// * 
+// * @param String
+// *            key The key of the cookie.
+// * @return The value of the cookie.
+// * @type String
+// * 
+// * @name sy.cookie
+// * @cat Plugins/Cookie
+// * @author Klaus Hartl/klaus.hartl@stilbuero.de
+// */
+//youqiu.cookie = function (key, value, options) {
+//    if (arguments.length > 1 && (value === null || typeof value !== "object")) {
+//        options = $.extend({}, options);
+//        if (value === null) {
+//            options.expires = -1;
+//        }
+//        if (typeof options.expires === 'number') {
+//            var days = options.expires, t = options.expires = new Date();
+//            t.setDate(t.getDate() + days);
+//        }
+//        return (document.cookie = [encodeURIComponent(key), '=', options.raw ? String(value) : encodeURIComponent(String(value)), options.expires ? '; expires=' + options.expires.toUTCString() : '', options.path ? '; path=' + options.path : '', options.domain ? '; domain=' + options.domain : '', options.secure ? '; secure' : ''].join(''));
+//    }
+//    options = value || {};
+//    var result, decode = options.raw ? function (s) {
+//        return s;
+//    } : decodeURIComponent;
+//    return (result = new RegExp('(?:^|; )' + encodeURIComponent(key) + '=([^;]*)').exec(document.cookie)) ? decode(result[1]) : null;
+//};
+//
+//youqiu.param = function (data) {
+//    var s = [];
+//    var add = function (key, value) {
+//        value = $.isFunction(value) ? value() : value;
+//        s[s.length] = encodeURIComponent(key) + '=' + encodeURIComponent(value);
+//    };
+//
+//    if ($.isArray(data) || (data.jquery && !$.isPlainObject(data))) {
+//        $.each(data, function () {
+//            add(this.name, this.value);
+//        });
+//    }
+//    else {
+//        for (var prefix in data) {
+//            buildParams(prefix, data[prefix], add);
+//        }
+//    }
+//
+//    return s.join("&").replace(/%20/g, "+");
+//};
+//
+//function buildParams(prefix, obj, add) {
+//    if ($.isArray(obj)) {
+//        $.each(obj, function (index, item) {
+//            buildParams(prefix + '[' + index + ']', item, add);
+//        });
+//    }
+//    else if (obj != null && typeof obj === 'object') {
+//        for (var name in obj) {
+//            buildParams(prefix + '.' + name, obj[name], add);
+//        }
+//    }
+//    else {
+//        add(prefix, obj);
+//    }
+//}
+//
+///**
+// * 改变jQuery的AJAX默认属性和方法
+// * 
+// */
+////$.ajaxSetup({
+////    type: 'POST',
+////    error: function (XMLHttpRequest, textStatus, errorThrown) {
+////        try {
+////            parent.$.messager.progress('close');
+////            parent.$.messager.alert('错误', XMLHttpRequest.responseText);
+////        } catch (e) {
+////            alert(XMLHttpRequest.responseText);
+////        }
+////    }
+////});
+//
+//
+///**************************
+// * 浏览器相关信息
+// **************************/
+//var browser = {
+//    appCodeName: navigator.appCodeName,     // 浏览器代码名称
+//    appName: navigator.appName,     // 浏览器名称
+//    appVersion: navigator.appVersion,       // 浏览器的平台和版本信息
+//    cookieEnabled: navigator.cookieEnabled,     // 浏览器中是否启用cookie
+//    platform: navigator.platform,       // 运行浏览器的操作系统平台
+//    userAgent: navigator.userAgent,     // 由客户机发送服务器的user-agent头部值
+//    isIe: false,
+//    isVersion: '',
+//    isChrome: false,
+//    isFirefox: false
+//};
+//
+//if (browser.userAgent.indexOf('MSIE') > -1) {
+//    bowser.isIe = true;
+//    if (browser.userAgent.indexOf('MSIE 10') > -1) {
+//        border.ieVersion = 10;
+//    }
+//    else if (browser.userAgent.indexOf('MSIE 9') > -1) {
+//        border.ieVersion = 9;
+//    }
+//    else if (browser.userAgent.indexOf('MSIE 8') > -1) {
+//        border.ieVersion = 8;
+//    }
+//    else if (browser.userAgent.indexOf('MSIE 7') > -1) {
+//        border.ieVersion = 7;
+//    }
+//    else if (browser.userAgent.indexOf('MSIE 6') > -1) {
+//        border.ieVersion = 6;
+//    }
+//}
+//else if (browser.userAgent.indexOf('Chrome') > -1) {
+//    browser.isChrome = true;
+//}
+//else if (browser.userAgent.indexOf('Firefox') > -1) {
+//    browser.isFirefox = true;
+//}

@@ -103,6 +103,7 @@
     <Compile Include="FluentValidationConfig.cs" />
     <Compile Include="MvcIntrinsics.cs" />
     <Compile Include="Filters\IsPostedFromThisSiteAttribute.cs" />
+    <Compile Include="MvcResolver.cs" />
     <Compile Include="ParamBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\JsonNetValueProviderFactory.cs" />
