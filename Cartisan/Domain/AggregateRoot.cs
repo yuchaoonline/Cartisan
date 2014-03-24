@@ -9,7 +9,7 @@ namespace Cartisan.Domain {
             get { return IoCFactory.Resolve<IDomainEventBus>(); }
         }*/
 
-        private string _aggreagetRootType;
+        /*private string _aggreagetRootType;
 
         protected string AggregateRootName {
             get {
@@ -22,7 +22,7 @@ namespace Cartisan.Domain {
                 }
                 return _aggreagetRootType;
             }
-        }
+        }*/
 
         /*protected virtual void OnEvent<TDomainEvent>(TDomainEvent @event) where TDomainEvent: class, IDomainEvent {
             HandleEvent(@event);

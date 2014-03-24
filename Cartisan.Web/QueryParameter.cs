@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text;
 
-namespace Cartisan.Infrastructure.Utility {
+namespace Cartisan.Web {
     public class QueryParameter {
         private readonly string _name;
         private string _value;
@@ -12,11 +12,11 @@ namespace Cartisan.Infrastructure.Utility {
         }
 
         public string Name {
-            get { return _name; }
+            get { return this._name; }
         }
 
         public string Value {
-            get { return _value; }
+            get { return this._value; }
             set { this._value = value; }
         }
 

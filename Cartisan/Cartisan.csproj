@@ -78,13 +78,9 @@
     <Compile Include="DomainEvent\IDomainEventHandler.cs" />
     <Compile Include="DomainEvent\IDomainEventHandlerFactory.cs" />
     <Compile Include="Domain\AggregateRoot.cs" />
-    <Compile Include="Domain\BusinessRule.cs" />
     <Compile Include="Domain\Entity.cs" />
-    <Compile Include="Domain\EntityIsInvalidException.cs" />
     <Compile Include="Domain\IAggregateRoot.cs" />
     <Compile Include="Domain\IEntity.cs" />
-    <Compile Include="Domain\ValueObjectBase.cs" />
-    <Compile Include="Domain\ValueObjectIsInvalidException.cs" />
     <Compile Include="Event\Default\DomainEvent.cs" />
     <Compile Include="Event\Default\DomainEventBus.cs" />
     <Compile Include="Event\Default\EventSubscriberProvider.cs" />
@@ -122,7 +118,6 @@
     <Compile Include="Infrastructure\Utility\FastInvoke.cs" />
     <Compile Include="Infrastructure\Utility\GuidUtil.cs" />
     <Compile Include="Infrastructure\Utility\LockUtil.cs" />
-    <Compile Include="Infrastructure\Utility\QueryParameter.cs" />
     <Compile Include="Infrastructure\Utility\SBase64Utility.cs" />
     <Compile Include="Infrastructure\Utility\SerializeUtil.cs" />
     <Compile Include="Infrastructure\Utility\Utility.cs" />
