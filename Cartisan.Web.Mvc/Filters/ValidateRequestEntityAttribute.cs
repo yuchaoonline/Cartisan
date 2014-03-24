@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
-using Cartisan.Exceptions;
+using Cartisan.Infrastructure;
 
 namespace Cartisan.Web.Mvc.Filters {
     public class ValidateRequestEntityAttribute: ActionFilterAttribute {
@@ -11,7 +11,7 @@ namespace Cartisan.Web.Mvc.Filters {
                 string errorMessages = string.Join("<br/>",
                     modelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage));
 
-                throw new ValidateFailureException(errorMessages);
+                throw new CartisanException(ErrorCode.ValidateFailure, errorMessages);
             }
         }
     }

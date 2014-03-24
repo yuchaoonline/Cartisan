@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Web.Mvc;
 using Cartisan.Infrastructure;
+using Cartisan.IoC;
 
 namespace Cartisan.Web.Mvc {
     public class MvcResolver: IResolver {

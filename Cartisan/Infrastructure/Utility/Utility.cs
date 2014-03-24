@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Cartisan.Infrastructure.Utility {
     public class Utility {
-        internal static string GetUniqueIdentifier(int length) {
+        public static string GetUniqueIdentifier(int length) {
             try {
                 int maxSize = length;
                 char[] chars = new char[62];

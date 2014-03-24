@@ -10,7 +10,7 @@ namespace Cartisan.Web.Mvc.Filters {
 
                 ResponseResult responseResult = new ResponseResult() {
                     Success = true,
-                    Status = ResultState.Success.ToString(),
+                    Status = ResultStatus.Success.ToString(),
                     Data = data
                 };
 

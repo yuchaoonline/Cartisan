@@ -1,5 +1,6 @@
 ﻿using Cartisan.Infrastructure;
 using Cartisan.Infrastructure.Log;
+using Cartisan.IoC;
 
 namespace Cartisan.Log4Net.Config {
     public static class ConfigurationExtension {

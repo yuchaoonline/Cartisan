@@ -58,6 +58,7 @@
     <Compile Include="MessageStoring\DomainEvent.cs" />
     <Compile Include="MessageStoring\Message.cs" />
     <Compile Include="MessageStoring\MessageStore.cs" />
+    <Compile Include="Extensions\OrderExpressionExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitOfWork.cs" />
   </ItemGroup>

@@ -9,6 +9,7 @@ using System.Net;
 using Cartisan.Domain;
 using Cartisan.Infrastructure;
 using Cartisan.Infrastructure.Extensions;
+using Cartisan.IoC;
 
 namespace Cartisan.EntityFramework.Extensions {
     public static class EntityExtension {

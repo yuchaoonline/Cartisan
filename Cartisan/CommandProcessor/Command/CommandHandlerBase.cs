@@ -3,9 +3,9 @@ using Cartisan.Infrastructure;
 
 namespace Cartisan.CommandProcessor.Command {
     public class CommandHandlerBase {
-        protected virtual ICommandResult ExecuteResult(Action<CommandResult> action) {
+        protected virtual Result ExecuteResult(Action<Result> action) {
             try {
-                var result = new CommandResult{
+                var result = new Result{
                     Success = true
                 };
                 action(result);
@@ -14,9 +14,9 @@ namespace Cartisan.CommandProcessor.Command {
             catch(Exception ex) {
                 //LogHelper.Log.Error(null, ex);
 
-                return new CommandResult {
+                return new Result {
                     Success = false,
-                    State = ResultState.Exception,
+                    Status = ResultStatus.Exception,
                     Message = ex.Message
                 };
             }
@@ -24,9 +24,9 @@ namespace Cartisan.CommandProcessor.Command {
     }
     
     public class CommandHandlerBase<TResult> {
-        protected virtual ICommandResult<TResult> ExecuteResult(Action<CommandResult<TResult>> action) {
+        protected virtual Result<TResult> ExecuteResult(Action<Result<TResult>> action) {
             try {
-                var result = new CommandResult<TResult>{
+                var result = new Result<TResult>{
                     Success = true
                 };
                 action(result);
@@ -35,9 +35,9 @@ namespace Cartisan.CommandProcessor.Command {
             catch(Exception ex) {
                 //LogHelper.Log.Error(null, ex);
 
-                return new CommandResult<TResult> {
+                return new Result<TResult> {
                     Success = false,
-                    State = ResultState.Exception,
+                    Status = ResultStatus.Exception,
                     Message = ex.Message
                 };
             }

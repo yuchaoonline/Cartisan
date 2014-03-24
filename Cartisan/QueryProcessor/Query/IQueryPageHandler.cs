@@ -1,5 +1,7 @@
-﻿namespace Cartisan.QueryProcessor.Query {
+﻿using Cartisan.Infrastructure;
+
+namespace Cartisan.QueryProcessor.Query {
     public interface IQueryPageHandler<in TQuery, TResult> where TQuery: IQuery {
-        IPageResult<TResult> Execute(TQuery query, PageOption pageOption);
+        Result<Paginated<TResult>> Execute(TQuery query, PageOption pageOption);
     }
 }

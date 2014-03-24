@@ -1,5 +1,7 @@
-﻿namespace Cartisan.QueryProcessor.Query {
+﻿using Cartisan.Infrastructure;
+
+namespace Cartisan.QueryProcessor.Query {
     public interface IQueryListHandler<in TQuery, TResult> where TQuery : IQuery {
-        IListResult<TResult> Execute(TQuery query);
+        MulitiDataResult<TResult> Execute(TQuery query);
     }
 }

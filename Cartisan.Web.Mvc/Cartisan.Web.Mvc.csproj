@@ -83,6 +83,7 @@
     <Compile Include="Auth\FormAuthProvider.cs" />
     <Compile Include="Auth\IAuthProvider.cs" />
     <Compile Include="CartisanMvcHttpModule.cs" />
+    <Compile Include="CommandHttpClient.cs" />
     <Compile Include="Controllers\AuthorizeControllerBase.cs" />
     <Compile Include="Controllers\ControllerBase.cs" />
     <Compile Include="Controllers\Error.cs" />

@@ -1,9 +1,8 @@
 ﻿using System;
 using Cartisan.Infrastructure;
-using Cartisan.Result;
 
 namespace Cartisan.QueryProcessor.Query {
-    public abstract class QueryHandlerBase<TResult> where TResult:IResult, new(){
+    public abstract class QueryHandlerBase<TResult> where TResult:Result, new(){
         protected virtual TResult ExecuteResult(Action<TResult> action) {
             try {
                 var result = new TResult {
@@ -15,7 +14,7 @@ namespace Cartisan.QueryProcessor.Query {
             catch(Exception ex) {
                 return new TResult {
                     Success = false,
-                    State = ResultState.Exception,
+                    //State = ResultState.Exception,
                     Message = ex.Message
                 };
             }

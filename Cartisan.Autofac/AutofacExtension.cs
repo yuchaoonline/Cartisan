@@ -3,6 +3,7 @@ using System.Reflection;
 using Autofac;
 using Cartisan.Infrastructure;
 using Cartisan.Infrastructure.Extensions;
+using Cartisan.IoC;
 
 namespace Cartisan.Autofac {
     public static class AutofacExtension {

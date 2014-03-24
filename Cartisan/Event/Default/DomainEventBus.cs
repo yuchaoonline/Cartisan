@@ -25,6 +25,7 @@ namespace Cartisan.Event.Default {
         }
 
         public void Publish<TEvent>(TEvent @event) where TEvent: IDomainEvent {
+            DomainEventQueue.Enqueue(@event);
             IList<object> eventSubscribers = EventSubscriberProvider.GetHandlers(@event.GetType());
             eventSubscribers.ForEach(eventSubscriber => ((dynamic)eventSubscriber).Handle((dynamic)@event));
             DomainEventQueue.Enqueue(@event);

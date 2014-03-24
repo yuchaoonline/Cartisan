@@ -1,7 +1,6 @@
 ﻿using System.Net;
 using System.Text;
 using System.Web.Mvc;
-using Cartisan.Exceptions;
 using Cartisan.Infrastructure;
 using Cartisan.Web.Mvc.Results;
 
@@ -11,15 +10,18 @@ namespace Cartisan.Web.Mvc.Filters {
             string errorMessage = filterContext.Exception.Message;
             filterContext.HttpContext.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
 
-            ResultState status = filterContext.Exception is UnauthorizedException ? ResultState.Unauthorized :
-                filterContext.Exception is ValidateFailureException ? ResultState.ValidateFailure :
-                    filterContext.Exception is RuntimeFailureException ? ResultState.RuntimeFailure :
-                        ResultState.Exception;
+            CartisanException cartisanException = filterContext.Exception as CartisanException;
+
+            string status = cartisanException == null ? ResultStatus.Exception :
+                cartisanException.ErrorCode == ErrorCode.Unauthorized ? ResultStatus.Unauthorized :
+                    cartisanException.ErrorCode == ErrorCode.ValidateFailure ? ResultStatus.ValidateFailure :
+                        cartisanException.ErrorCode == ErrorCode.RuntimeFailure ? ResultStatus.RuntimeFailure :
+                            ResultStatus.Exception;
 
             filterContext.Result = new JsonNetResult() {
-                Data = new ResponseResult() {
+                Data = new Result() {
                     Success = false,
-                    Status = status.ToString(),
+                    Status = status,
                     Message = errorMessage
                 },
                 ContentEncoding = Encoding.UTF8,

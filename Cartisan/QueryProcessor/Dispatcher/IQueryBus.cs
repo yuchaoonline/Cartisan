@@ -1,9 +1,10 @@
-﻿using Cartisan.QueryProcessor.Query;
+﻿using Cartisan.Infrastructure;
+using Cartisan.QueryProcessor.Query;
 
 namespace Cartisan.QueryProcessor.Dispatcher {
     public interface IQueryBus {
-        ISingleResult<TResult> QuerySingle<TQuery, TResult>(TQuery query) where TQuery : IQuery;
-        IListResult<TResult> QueryList<TQuery, TResult>(TQuery query) where TQuery : IQuery;
-        IPageResult<TResult> QueryPager<TQuery, TResult>(TQuery query, PageOption pageOption) where TQuery : IQuery;
+        Result<TResult> QuerySingle<TQuery, TResult>(TQuery query) where TQuery : IQuery;
+        MulitiDataResult<TResult> QueryList<TQuery, TResult>(TQuery query) where TQuery : IQuery;
+        Result<Paginated<TResult>> QueryPager<TQuery, TResult>(TQuery query, PageOption pageOption) where TQuery : IQuery;
     }
 }

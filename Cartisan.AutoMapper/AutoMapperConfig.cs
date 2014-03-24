@@ -2,6 +2,7 @@
 using AutoMapper;
 using Cartisan.Infrastructure;
 using Cartisan.Infrastructure.Extensions;
+using Cartisan.IoC;
 
 namespace Cartisan.AutoMapper {
     public static class AutoMapperConfig {

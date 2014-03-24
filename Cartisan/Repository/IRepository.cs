@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using Cartisan.Domain;
+using Cartisan.Infrastructure;
 using Cartisan.Specification;
 
 namespace Cartisan.Repository {
@@ -41,13 +42,13 @@ namespace Cartisan.Repository {
 
         void Update(TAggregateRoot entity);
 
-        IQueryable<TAggregateRoot> PageFind(int pageIndex, int pageSize,
+        Paginated<TAggregateRoot> PageFind(int pageIndex, int pageSize,
             Expression<Func<TAggregateRoot, bool>> specification, params OrderExpression[] orderByExpressions);
-        IQueryable<TAggregateRoot> PageFind(int pageIndex, int pageSize, ref long totalCount,
+        Paginated<TAggregateRoot> PageFind(int pageIndex, int pageSize, ref long totalCount,
             Expression<Func<TAggregateRoot, bool>> specification, params OrderExpression[] orderByExpressions);
-        IQueryable<TAggregateRoot> PageFind(int pageIndex, int pageSize,
+        Paginated<TAggregateRoot> PageFind(int pageIndex, int pageSize,
             ISpecification<TAggregateRoot> specification, params OrderExpression[] orderByExpressions);
-        IQueryable<TAggregateRoot> PageFind(int pageIndex, int pageSize, ref long totalCount,
+        Paginated<TAggregateRoot> PageFind(int pageIndex, int pageSize, ref long totalCount,
             ISpecification<TAggregateRoot> specification, params OrderExpression[] orderByExpressions);
     }
 }

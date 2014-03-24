@@ -3,9 +3,9 @@ using Cartisan.Infrastructure;
 
 namespace Cartisan.CommandProcessor.Command {
     public abstract class ValidationHandlerBase  {
-        protected virtual IValidationResult ExecuteResult(Action<ValidationResult> action) {
+        protected virtual Result ExecuteResult(Action<Result> action) {
             try {
-                var result = new ValidationResult {
+                var result = new Result {
                     Success = true 
                 };
                 action(result);
@@ -14,9 +14,9 @@ namespace Cartisan.CommandProcessor.Command {
             catch(Exception ex) {
                 //LogHelper.Log.Error(null, ex);
 
-                return new ValidationResult{
+                return new Result{
                     Success = false,
-                    State = ResultState.Exception,
+                    Status = ResultStatus.Exception,
                     Message = ex.Message
                 };
             }

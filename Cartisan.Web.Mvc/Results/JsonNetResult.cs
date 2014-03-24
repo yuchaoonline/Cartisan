@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Web;
 using System.Web.Mvc;
+using Cartisan.Infrastructure.Extensions;
+using Cartisan.Infrastructure.Utility;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 
 namespace Cartisan.Web.Mvc.Results {
     public class JsonNetResult: JsonResult {
@@ -15,9 +16,7 @@ namespace Cartisan.Web.Mvc.Results {
         }
 
         public override void ExecuteResult(ControllerContext context) {
-            if(context ==null) {
-                throw new ArgumentException("context");
-            }
+            ValidationUtils.ArgumentNotNull(context, "context");
 
             if(this.JsonRequestBehavior == JsonRequestBehavior.DenyGet &&
                 string.Equals(context.HttpContext.Request.HttpMethod, "GET", StringComparison.OrdinalIgnoreCase)) {
@@ -32,19 +31,12 @@ namespace Cartisan.Web.Mvc.Results {
             }
 
             if(this.Data!=null) {
-                JsonSerializerSettings serializerSettings = new JsonSerializerSettings();
-                if(this.UseCamelCasePropertyName) {
-                    serializerSettings.ContractResolver=new CamelCasePropertyNamesContractResolver();
-                }
-
-                JsonTextWriter writer = new JsonTextWriter(response.Output) {
-                    Formatting = this.Formatting
-                };
-
-                JsonSerializer serializer = JsonSerializer.Create(serializerSettings);
-                serializer.Serialize(writer, this.Data);
-                writer.Flush();
+                response.Write(this.GetJsonString(context, this.Data));
             }
+        }
+
+        protected virtual string GetJsonString(ControllerContext context, object data) {
+            return data.ToJson();
         }
     }
 }

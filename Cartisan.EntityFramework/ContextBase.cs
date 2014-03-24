@@ -4,6 +4,7 @@ using System.Data.Entity.Core.Objects;
 using System.Data.Entity.Infrastructure;
 using Cartisan.EntityFramework.Extensions;
 using Cartisan.Infrastructure;
+using Cartisan.IoC;
 using Cartisan.UnitOfWork;
 
 namespace Cartisan.EntityFramework {

@@ -6,6 +6,8 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Linq.Expressions;
 using Cartisan.Domain;
+using Cartisan.EntityFramework.Extensions;
+using Cartisan.Infrastructure;
 using Cartisan.Infrastructure.Extensions;
 using Cartisan.Repository;
 using Cartisan.Specification;
@@ -100,7 +102,7 @@ namespace Cartisan.EntityFramework {
             throw new NotImplementedException();
         }
 
-        public IQueryable<TEntity> PageFind(int pageIndex, int pageSize, Expression<Func<TEntity, bool>> specification,
+        public Paginated<TEntity> PageFind(int pageIndex, int pageSize, Expression<Func<TEntity, bool>> specification,
             params OrderExpression[] orderByExpressions) {
             if(pageIndex < 0) {
                 throw new ArgumentException("PageIndex无效");
@@ -115,10 +117,10 @@ namespace Cartisan.EntityFramework {
                 specification = new AllSpecification<TEntity>().GetExpression();
             }
             var query = this.FindAll(specification, orderByExpressions);
-            return query.GetPageElements(pageIndex, pageSize);
+            return query.Paginate(pageIndex, pageSize);
         }
 
-        public IQueryable<TEntity> PageFind(int pageIndex, int pageSize, ref long totalCount,
+        public Paginated<TEntity> PageFind(int pageIndex, int pageSize, ref long totalCount,
             Expression<Func<TEntity, bool>> specification, params OrderExpression[] orderByExpressions) {
             var query = this.PageFind(pageIndex, pageSize, specification, orderByExpressions);
             totalCount = Count(specification);
@@ -126,19 +128,19 @@ namespace Cartisan.EntityFramework {
             return query;
         }
 
-        public IQueryable<TEntity> PageFind(int pageIndex, int pageSize, ISpecification<TEntity> specification,
+        public Paginated<TEntity> PageFind(int pageIndex, int pageSize, ISpecification<TEntity> specification,
             params OrderExpression[] orderByExpressions) {
             return PageFind(pageIndex, pageSize, specification.GetExpression(), orderByExpressions);
         }
 
-        public IQueryable<TEntity> PageFind(int pageIndex, int pageSize, ref long totalCount,
+        public Paginated<TEntity> PageFind(int pageIndex, int pageSize, ref long totalCount,
             ISpecification<TEntity> specification,
             params OrderExpression[] orderByExpressions) {
             return PageFind(pageIndex, pageSize, ref totalCount, specification.GetExpression(), orderByExpressions);
         }
 
         public void ChangeMergeOption<TMergeOptionEntity>(MergeOption mergeOption)
-            where TMergeOptionEntity: class, IAggregateRoot {
+            where TMergeOptionEntity: class {
             ObjectContext objectContext = ((IObjectContextAdapter)_context).ObjectContext;
             ObjectSet<TMergeOptionEntity> set = objectContext.CreateObjectSet<TMergeOptionEntity>();
             set.MergeOption = mergeOption;

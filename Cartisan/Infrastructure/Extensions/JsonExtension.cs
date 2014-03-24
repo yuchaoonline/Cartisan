@@ -1,149 +1,105 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
 
 namespace Cartisan.Infrastructure.Extensions {
     public static class JsonExtension {
+        public static string ToJson(this object obj, bool serializeNonPublic = false,
+            bool useCamelCasePropertyName = true, bool indented = false) {
+
+            return JsonConvert.SerializeObject(obj, indented ? Formatting.Indented : Formatting.None,
+                GetCustomJsonSerializersettings(serializeNonPublic, useCamelCasePropertyName));
+        }
+
+        public static object ToJsonObject(this string json, bool serializeNonPublic = false,
+            bool useCamelCasePropertyName = true) {
+            try {
+                return JsonConvert.DeserializeObject(json,
+                    GetCustomJsonSerializersettings(serializeNonPublic, useCamelCasePropertyName));
+            }
+            catch (Exception) {
+                throw;
+            }
+        }
+
         private static JsonSerializerSettings _nonPublicSerializerSettings;
         private static JsonSerializerSettings NonPublicSerializerSettings {
             get {
-                if(_nonPublicSerializerSettings==null) {
-                    DefaultContractResolver contractResolver = new ContractResolver();
-                    _nonPublicSerializerSettings = new JsonSerializerSettings() {
-                        ContractResolver = contractResolver
-                    };
-                }
-                return _nonPublicSerializerSettings;
+                return _nonPublicSerializerSettings
+                    ?? (_nonPublicSerializerSettings = CreateCustomerSerializerSettings(true, false));
             }
         }
-
-        private static readonly JsonSerializerSettings LoopSerizlizeSerializerSettings = new JsonSerializerSettings() {
-            PreserveReferencesHandling = PreserveReferencesHandling.Objects,
-            ReferenceLoopHandling = ReferenceLoopHandling.Serialize
-        };
-
-        private static JsonSerializerSettings _nonPublicLoopSerizlizeSerizlizerSettings;
-        private static JsonSerializerSettings NonPublicLoopSerizlizeSerizlizerSettings {
+        
+        private static JsonSerializerSettings _nonPublicCamelCasePropertyNameSerializerSettings;
+        private static JsonSerializerSettings NonPublicCamelCasePropertyNameSerializerSettings {
             get {
-                if(_nonPublicLoopSerizlizeSerizlizerSettings==null) {
-                    DefaultContractResolver contractResolver = new ContractResolver();
-                    _nonPublicSerializerSettings = new JsonSerializerSettings() {
-                        ContractResolver = contractResolver,
-                        PreserveReferencesHandling = PreserveReferencesHandling.Objects,
-                        ReferenceLoopHandling = ReferenceLoopHandling.Serialize
-                    };
+                return _nonPublicCamelCasePropertyNameSerializerSettings
+                    ?? (_nonPublicCamelCasePropertyNameSerializerSettings = CreateCustomerSerializerSettings(true, true));
+            }
+        }
+
+        private static JsonSerializerSettings _publicSerializerSettings;
+        private static JsonSerializerSettings PublicSerializerSettings {
+            get {
+                return _publicSerializerSettings
+                    ?? (_publicSerializerSettings = CreateCustomerSerializerSettings(false, false));
+            }
+        }
+
+        private static JsonSerializerSettings _publicCamelCasePropertyNameSerializerSettings;
+        private static JsonSerializerSettings PublicCamelCasePropertyNameSerializerSettings {
+            get {
+                return _publicCamelCasePropertyNameSerializerSettings
+                    ?? (_publicCamelCasePropertyNameSerializerSettings = CreateCustomerSerializerSettings(false, true));
+            }
+        }
+
+        private static JsonSerializerSettings CreateCustomerSerializerSettings(bool serializeNonPublic,
+            bool useCamelCasePropertyName) {
+            return new JsonSerializerSettings() {
+                ContractResolver = new CartisanContractResolver(serializeNonPublic,
+                    useCamelCasePropertyName)
+            };
+        }
+
+
+        private static JsonSerializerSettings GetCustomJsonSerializersettings(bool serializeNonPublic,
+            bool useCamelCasePropertyName) {
+            if(serializeNonPublic) {
+                if(useCamelCasePropertyName) {
+                    return NonPublicCamelCasePropertyNameSerializerSettings;
                 }
-                return _nonPublicLoopSerizlizeSerizlizerSettings;
-            }
-        }
-
-        public static JsonSerializerSettings GetCustomJsonSerializersettings(bool serializeNonPublic, bool loopSerialize) {
-            JsonSerializerSettings customSettings = null;
-            if(serializeNonPublic && loopSerialize) {
-                customSettings = NonPublicLoopSerizlizeSerizlizerSettings;
-            }
-            else if(serializeNonPublic) {
-                customSettings = NonPublicSerializerSettings;
-            }
-            else if(loopSerialize) {
-                customSettings = LoopSerizlizeSerializerSettings;
-            }
-
-            return customSettings;
-        }
-
-        public static string ToJson(this object obj, bool serializeNonPublic = false, bool loopSerialize = false) {
-            return JsonConvert.SerializeObject(obj, GetCustomJsonSerializersettings(serializeNonPublic, loopSerialize));
-        }
-
-        public static object ToJsonObject(this string json, bool serializeNonPublic = true, bool loopSerialize = false) {
-            try {
-                return JsonConvert.DeserializeObject(json,
-                    GetCustomJsonSerializersettings(serializeNonPublic, loopSerialize));
-            }
-            catch(Exception) {
-                return null;
-            }
-        }
-
-        public static object ToJsonObject(this string json, Type jsonType, bool serializeNonPublic = true,
-            bool loopSerialize = false) {
-            try {
-                if(jsonType == typeof(List<dynamic>)) {
-                    return json.ToDynamicObjects(serializeNonPublic, loopSerialize);
-                }
-                if(jsonType==typeof(object)) {
-                    json.ToDynamicObject(serializeNonPublic, loopSerialize);
-                }
-                return JsonConvert.DeserializeObject(json, jsonType,
-                    GetCustomJsonSerializersettings(serializeNonPublic, loopSerialize));
-            }
-            catch(Exception) {
-                return null;
-            }
-        }
-
-        public static T ToJsonObject<T>(this string json, bool serializeNonPublic = true, bool loopSerialize = false) {
-            try {
-                if(typeof(T)== typeof(List<dynamic>)) {
-                    return (T)(Object)(json.ToDynamicObjects(serializeNonPublic, loopSerialize));
-                }
-                if(typeof(T)==typeof(object)) {
-                    return json.ToDynamicObject(serializeNonPublic, loopSerialize);
-                }
-                return JsonConvert.DeserializeObject<T>(json,
-                    GetCustomJsonSerializersettings(serializeNonPublic, loopSerialize));
-            }
-            catch(Exception) {
-                return default(T);
-            }
-        }
-
-        public static dynamic ToDynamicObject(this string json, bool serializeNonPublic = true,
-            bool loopSerialize = false) {
-            dynamic dynamicObject = null;
-            JObject jsonObject = json.ToJsonObject<JObject>(serializeNonPublic, loopSerialize);
-            if(jsonObject!=null) {
-                dynamicObject = new DynamicJson(jsonObject);
-            }
-
-            return dynamicObject;
-        }
-
-        public static List<dynamic> ToDynamicObjects(this string json, bool serializeNonPublic = true,
-            bool loopSerialize = false) {
-            List<dynamic> dynamicObjects = null;
-            JArray jsonObjects = json.ToJsonObject<JArray>(serializeNonPublic, loopSerialize);
-            if(jsonObjects!=null) {
-                dynamicObjects = new List<dynamic>();
-                foreach(JToken jsonObject in jsonObjects) {
-                    dynamicObjects.Add(new DynamicJson(jsonObject as JObject));
+                else {
+                    return NonPublicSerializerSettings;
                 }
             }
-
-            return dynamicObjects;
+            else {
+                if(useCamelCasePropertyName) {
+                    return PublicCamelCasePropertyNameSerializerSettings;
+                }
+                else {
+                    return PublicSerializerSettings;
+                }
+            }
         }
-
-//        public static string ToJson(this object obj, bool useCamelCasePropertyName = true,
-//            Formatting formatting = Formatting.Indented) {
-//            JsonSerializerSettings settings = new JsonSerializerSettings();
-//            if (useCamelCasePropertyName) {
-//                settings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-//            }
-//            else {
-//                settings.ContractResolver = new DefaultContractResolver();
-//            }
-//            return JsonConvert.SerializeObject(obj, formatting, settings);
-//        }
     }
 
-    internal class ContractResolver: DefaultContractResolver {
-        protected override List<MemberInfo> GetSerializableMembers(Type objectType) {
-            return objectType.GetMembers(BindingFlags.Public | BindingFlags.NonPublic).ToList();
+    internal class CartisanContractResolver: DefaultContractResolver {
+        private readonly bool _useCamelCasePropertyName;
+
+        public CartisanContractResolver(bool serializeNonPublic, bool useCamelCasePropertyName): base(false) {
+            this._useCamelCasePropertyName = useCamelCasePropertyName;
+            if (serializeNonPublic) {
+                this.DefaultMembersSearchFlags |= BindingFlags.NonPublic;
+            }
+        }
+
+        protected override string ResolvePropertyName(string propertyName) {
+            if(_useCamelCasePropertyName) {
+                return propertyName.ToCamelCase();
+            }
+            return propertyName;
         }
     }
 }

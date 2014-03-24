@@ -1,5 +1,7 @@
-﻿namespace Cartisan.QueryProcessor.Query {
+﻿using Cartisan.Infrastructure;
+
+namespace Cartisan.QueryProcessor.Query {
     public interface IQuerySingleHandler<in TQuery, TResult> where TQuery : IQuery {
-        ISingleResult<TResult> Execute(TQuery query);
+        Result<TResult> Execute(TQuery query);
     }
 }
