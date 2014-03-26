@@ -9,8 +9,7 @@ namespace Cartisan.Log4Net.Config {
         }
 
         public static void UseLog4Net(string configFile) {
-
-            IoCFactory.Resolve<ILoggerFactory>();
+            ServiceLocator.GetService<ILoggerFactory>();
         }
     }
 }

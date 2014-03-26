@@ -1,8 +1,8 @@
-﻿/*using System.Collections.Generic;
-using Cartisan.Message;
-
-namespace Cartisan.Event {
+﻿namespace Cartisan.Event {
+    /// <summary>
+    /// 事件发布
+    /// </summary>
     public interface IEventPublisher {
-        IEnumerable<IMessageContext> Publish(params IEvent[] events);
+        void Publish(params IEvent[] events);
     }
-}*/
+}

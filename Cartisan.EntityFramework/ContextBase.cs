@@ -3,7 +3,6 @@ using System.Data.Entity;
 using System.Data.Entity.Core.Objects;
 using System.Data.Entity.Infrastructure;
 using Cartisan.EntityFramework.Extensions;
-using Cartisan.Infrastructure;
 using Cartisan.IoC;
 using Cartisan.UnitOfWork;
 
@@ -52,7 +51,7 @@ namespace Cartisan.EntityFramework {
         }
 
         private void RegisterToUnitOfWork() {
-            UnitOfWork unitOfWork = IoCFactory.Resolve<IUnitOfWork>() as UnitOfWork;
+            UnitOfWork unitOfWork = ServiceLocator.GetService<IUnitOfWork>() as UnitOfWork;
             if (unitOfWork != null) {
                 unitOfWork.RegisterDbContext(this);
             }

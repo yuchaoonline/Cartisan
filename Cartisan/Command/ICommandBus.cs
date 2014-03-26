@@ -1,11 +1,10 @@
-﻿/*using System.Runtime.InteropServices;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using Cartisan.Infrastructure;
 
 namespace Cartisan.Command {
     public interface ICommandBus {
-        void Start();
-        Task Send(ICommand command, CancellationToken cancellationToken);
-        Task Send(ICommand command);
+        Result Submit<TCommand>(TCommand command) where TCommand: ICommand;
+        Result Validate<TCommand>(TCommand command) where TCommand: ICommand;
+
+        Result<TResult> Submit<TCommand, TResult>(TCommand command) where TCommand: ICommand;
     }
-}*/
+}

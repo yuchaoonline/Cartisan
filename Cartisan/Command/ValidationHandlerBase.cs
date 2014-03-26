@@ -1,7 +1,7 @@
 ﻿using System;
 using Cartisan.Infrastructure;
 
-namespace Cartisan.CommandProcessor.Command {
+namespace Cartisan.Command {
     public abstract class ValidationHandlerBase  {
         protected virtual Result ExecuteResult(Action<Result> action) {
             try {

@@ -1,5 +1,4 @@
-﻿using Cartisan.CommandProcessor.Command;
-using Cartisan.CommandProcessor.Dispatcher;
+﻿using Cartisan.Command;
 using Cartisan.Infrastructure;
 using StructureMap;
 

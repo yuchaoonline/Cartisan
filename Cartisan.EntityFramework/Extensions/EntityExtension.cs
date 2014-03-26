@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Net;
 using Cartisan.Domain;
-using Cartisan.Infrastructure;
 using Cartisan.Infrastructure.Extensions;
 using Cartisan.IoC;
 
@@ -16,7 +13,7 @@ namespace Cartisan.EntityFramework.Extensions {
         public static TContext GetDbContext<TContext>(this Entity entity) where TContext: class {
             TContext context = entity.GetValueByKey<TContext>("DomainContext");
             if(context==null) {
-                context = IoCFactory.Resolve<TContext>() as TContext;
+                context =  ServiceLocator.GetService<TContext>();
             }
 
             return context;
