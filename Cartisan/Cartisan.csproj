@@ -74,6 +74,7 @@
     <Compile Include="Event\IEventSubscriberProvider.cs" />
     <Compile Include="Infrastructure\CartisanException.cs" />
     <Compile Include="Infrastructure\Disposable.cs" />
+    <Compile Include="Infrastructure\EntityNotFoundException.cs" />
     <Compile Include="Infrastructure\Extensions\CollectionExtension.cs" />
     <Compile Include="Infrastructure\Extensions\ExpressionExtensions.cs" />
     <Compile Include="Infrastructure\Extensions\JsonExtension.cs" />

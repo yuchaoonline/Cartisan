@@ -6,9 +6,9 @@ using Newtonsoft.Json.Serialization;
 namespace Cartisan.Infrastructure.Extensions {
     public static class JsonExtension {
         public static string ToJson(this object obj, bool serializeNonPublic = false,
-            bool useCamelCasePropertyName = true, bool indented = false) {
+            bool useCamelCasePropertyName = true, bool isPretty = false) {
 
-            return JsonConvert.SerializeObject(obj, indented ? Formatting.Indented : Formatting.None,
+            return JsonConvert.SerializeObject(obj, isPretty ? Formatting.Indented : Formatting.None,
                 GetCustomJsonSerializersettings(serializeNonPublic, useCamelCasePropertyName));
         }
 

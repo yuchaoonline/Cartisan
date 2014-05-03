@@ -9,6 +9,7 @@ namespace Cartisan.Infrastructure {
         ValidateFailure
     }
 
+    [Serializable]
     public class CartisanException: ApplicationException {
         public ErrorCode ErrorCode { get; set; }
 
