@@ -52,6 +52,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cartisan.Quartz", "Cartisan
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cartisan.Memcached", "Cartisan.Memcached\Cartisan.Memcached.csproj", "{20DD3A72-7FCD-4206-82D2-E11A6EACC317}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cartisan.BusinessComponents", "Cartisan.BusinessComponents\Cartisan.BusinessComponents.csproj", "{A3E77C98-076E-48B2-B036-7F73DA9BF828}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -138,6 +140,10 @@ Global
 		{20DD3A72-7FCD-4206-82D2-E11A6EACC317}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{20DD3A72-7FCD-4206-82D2-E11A6EACC317}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{20DD3A72-7FCD-4206-82D2-E11A6EACC317}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3E77C98-076E-48B2-B036-7F73DA9BF828}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3E77C98-076E-48B2-B036-7F73DA9BF828}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3E77C98-076E-48B2-B036-7F73DA9BF828}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3E77C98-076E-48B2-B036-7F73DA9BF828}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
