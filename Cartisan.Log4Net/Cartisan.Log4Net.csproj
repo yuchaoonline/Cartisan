@@ -46,10 +46,14 @@
   <ItemGroup>
     <Compile Include="Config\Configuration.cs" />
     <Compile Include="Log4NetLogger.cs" />
-    <Compile Include="Log4NetLoggerFactory.cs" />
+    <Compile Include="Log4NetLoggerFactoryAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Cartisan.Web\Cartisan.Web.csproj">
+      <Project>{FA2D9511-C23D-4FD1-B15A-A513528CF4B6}</Project>
+      <Name>Cartisan.Web</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Cartisan\Cartisan.csproj">
       <Project>{E6DB5B35-DEEF-455D-9EC6-C8874571E7A6}</Project>
       <Name>Cartisan</Name>

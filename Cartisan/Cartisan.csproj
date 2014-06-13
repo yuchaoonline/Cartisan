@@ -94,7 +94,7 @@
     <Compile Include="IoC\IDependency.cs" />
     <Compile Include="IoC\IResolver.cs" />
     <Compile Include="Log\ILogger.cs" />
-    <Compile Include="Log\ILoggerFactory.cs" />
+    <Compile Include="Log\ILoggerFactoryAdapter.cs" />
     <Compile Include="Infrastructure\Result.cs" />
     <Compile Include="Infrastructure\ResultStatus.cs" />
     <Compile Include="IoC\ServiceLocator.cs" />
@@ -108,6 +108,9 @@
     <Compile Include="Infrastructure\Utility\SBase64Utility.cs" />
     <Compile Include="Infrastructure\Utility\SerializeUtil.cs" />
     <Compile Include="Infrastructure\Utility\Utility.cs" />
+    <Compile Include="Log\LoggerExtension.cs" />
+    <Compile Include="Log\LoggerFactory.cs" />
+    <Compile Include="Log\LogLevel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueryProcessor\Dispatcher\IQueryBus.cs" />
     <Compile Include="QueryProcessor\Query\IQuery.cs" />

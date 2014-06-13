@@ -10,74 +10,90 @@ namespace Cartisan.Log4Net {
             this._log = log;
         }
 
-        public bool IsDebugEnabled {
-            get { return _log.IsDebugEnabled; }
-        }
-
-        public void Debug(object message) {
-            if(IsDebugEnabled) {
-                _log.Debug(message);
+        public bool IsEnabled(LogLevel level) {
+            switch(level) {
+                case LogLevel.Debug:
+                    return this._log.IsDebugEnabled;
+                case LogLevel.Information:
+                    return this._log.IsInfoEnabled;
+                case LogLevel.Warning:
+                    return this._log.IsWarnEnabled;
+                case LogLevel.Error:
+                    return this._log.IsErrorEnabled;
+                case LogLevel.Fatal:
+                    return this._log.IsFatalEnabled;
+                default:
+                    return false;
             }
         }
 
-        public void Debug(object message, Exception exception) {
-            if (IsDebugEnabled) {
-                _log.Debug(message, exception);
+        public void Log(LogLevel level, object message) {
+            if(!this.IsEnabled(level)) {
+                return;
+            }
+            switch (level) {
+                case LogLevel.Debug:
+                    this._log.Debug(message);
+                    break;
+                case LogLevel.Information:
+                    this._log.Info(message);
+                    break;
+                case LogLevel.Warning:
+                    this._log.Warn(message);
+                    break;
+                case LogLevel.Error:
+                    this._log.Error(message);
+                    break;
+                case LogLevel.Fatal:
+                    this._log.Fatal(message);
+                    break;
             }
         }
 
-        public void DebugFormat(string format, params object[] args) {
-            if (IsDebugEnabled) {
-                _log.DebugFormat(format, args);
+        public void Log(LogLevel level, object message, Exception exception) {
+            if (!this.IsEnabled(level)) {
+                return;
+            }
+            switch (level) {
+                case LogLevel.Debug:
+                    this._log.Debug(message, exception);
+                    break;
+                case LogLevel.Information:
+                    this._log.Info(message, exception);
+                    break;
+                case LogLevel.Warning:
+                    this._log.Warn(message, exception);
+                    break;
+                case LogLevel.Error:
+                    this._log.Error(message, exception);
+                    break;
+                case LogLevel.Fatal:
+                    this._log.Fatal(message, exception);
+                    break;
             }
         }
 
-        public void Info(object message) {
-            _log.Info(message);
-        }
-
-        public void Info(object message, Exception exception) {
-            _log.Info(message, exception);
-        }
-
-        public void InfoFormat(string format, params object[] args) {
-            _log.InfoFormat(format, args);
-        }
-
-        public void Error(object message) {
-            _log.Error(message);
-        }
-
-        public void Error(object message, Exception exception) {
-            _log.Error(message, exception);
-        }
-
-        public void ErrorFormat(string format, params object[] args) {
-            _log.ErrorFormat(format, args);
-        }
-
-        public void Warn(object message) {
-            _log.Warn(message);
-        }
-
-        public void Warn(object message, Exception exception) {
-            _log.Warn(message, exception);
-        }
-
-        public void WarnFormat(string format, params object[] args) {
-            _log.WarnFormat(format, args);
-        }
-
-        public void Fatal(object message) {
-            _log.Fatal(message);
-        }
-
-        public void Fatal(object message, Exception exception) {
-            _log.Fatal(message, exception);
-        }
-
-        public void FatalFormat(string format, params object[] args) {
-            _log.FatalFormat(format, args);
+        public void Log(LogLevel level, string format, params object[] args) {
+            if (!this.IsEnabled(level)) {
+                return;
+            }
+            switch (level) {
+                case LogLevel.Debug:
+                    this._log.DebugFormat(format, args);
+                    break;
+                case LogLevel.Information:
+                    this._log.InfoFormat(format, args);
+                    break;
+                case LogLevel.Warning:
+                    this._log.WarnFormat(format, args);
+                    break;
+                case LogLevel.Error:
+                    this._log.ErrorFormat(format, args);
+                    break;
+                case LogLevel.Fatal:
+                    this._log.FatalFormat(format, args);
+                    break;
+            }
         }
     }
 }

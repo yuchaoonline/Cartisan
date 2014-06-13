@@ -26,7 +26,7 @@
 //        static WebApiApplication() {
 //            try {
 //                Configuration.Instance.UseLog4Net();
-//                _Logger = IoCFactory.Resolve<ILoggerFactory>().Create(typeof(WebApiApplication));
+//                _Logger = IoCFactory.Resolve<ILoggerFactoryAdapter>().Create(typeof(WebApiApplication));
 //
 //                var commandDistributor = new CommandDistributor("tcp://127.0.0.1:5000",
 //                                                                new string[] { 
