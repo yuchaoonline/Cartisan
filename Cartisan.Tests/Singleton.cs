@@ -1,6 +1,6 @@
 ﻿using System.Threading;
 
-namespace Cartisan.Temp {
+namespace Cartisan.Tests {
     public class Singleton {
         private static readonly  object LockObject = new object();
         private static Singleton _instance;

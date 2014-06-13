@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Text.RegularExpressions;
 
-namespace Cartisan {
+namespace Cartisan.Infrastructure {
     public static class AssertionConcern {
         public static void Equals(object object1, object object2, string message) {
             if (!object1.Equals(object2)) {
@@ -30,7 +29,7 @@ namespace Cartisan {
         }
 
         public static void Matches(string pattern, string stringValue, string message) {
-            Regex regex = new Regex(pattern);
+            System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex(pattern);
             if (!regex.IsMatch(stringValue)) {
                 throw new InvalidOperationException(message);
             }

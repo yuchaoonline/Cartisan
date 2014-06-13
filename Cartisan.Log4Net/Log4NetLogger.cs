@@ -1,5 +1,5 @@
 ﻿using System;
-using Cartisan.Infrastructure.Log;
+using Cartisan.Log;
 using log4net;
 
 namespace Cartisan.Log4Net {

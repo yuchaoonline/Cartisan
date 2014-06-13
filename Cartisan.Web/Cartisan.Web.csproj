@@ -43,10 +43,13 @@
     <Compile Include="AppActivator.cs" />
     <Compile Include="Cache\AspNetCacheService.cs" />
     <Compile Include="Cookie\CookiesHelper.cs" />
+    <Compile Include="DefaultRunningEnvironment.cs" />
     <Compile Include="DisposeObjectHttpModule.cs" />
     <Compile Include="FormsAuth.cs" />
+    <Compile Include="IRunningEnvironment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueryParameter.cs" />
+    <Compile Include="WebUtility.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Cartisan\Cartisan.csproj">

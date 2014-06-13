@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Cartisan.Infrastructure.Log {
+namespace Cartisan.Log {
     /// <summary>
     /// 日志
     /// </summary>
